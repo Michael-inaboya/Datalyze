@@ -15,7 +15,7 @@ Runs entirely in the browser, no server, data never leaves the device.
 - Currency picker (USD, GBP, EUR and others). US-style dates (MM/DD) are assumed when the currency is USD and the file is ambiguous.
 
 ## MVP roadmap
-1. **Accounts and saved workspaces**: sign-in, one workspace per business, data stored securely.
+1. **Accounts and saved workspaces** (built in `web/`): sign-in, one workspace per business, data stored securely with row-level security.
 2. **Live connectors** instead of CSV, in this order: Stripe, Shopify, Square, QuickBooks Online, Xero (UK), Google Sheets. All have OAuth APIs; nightly sync. Expense exports from QuickBooks and Xero get presets next.
 3. **Better models** once data is stored: seasonality-aware forecasts (Prophet or ETS with yearly seasonality), a trained churn model (gradient boosting on RFM features) where a business has enough history.
 4. **AI analyst**: Claude writes the weekly summary and answers questions like "why were sales down in March?" over the business's own numbers.
@@ -30,5 +30,7 @@ Runs entirely in the browser, no server, data never leaves the device.
 - **AI**: Claude API for narrative insights and Q&A.
 - **Hosting**: Vercel (web) + Fly.io or Render (Python service). Low fixed cost, which keeps the product affordable.
 
-## Running the prototype
-Open `app/index.html` in any modern browser. It loads Chart.js and PapaParse from cdnjs.
+## Repository layout
+- `web/`: the Next.js + Supabase app (sign-in, saved businesses, imports, dashboard). See [web/README.md](web/README.md) to run and deploy it.
+- `app/index.html`: the original single-file prototype. Open it in any browser.
+- `samples/`: example Shopify, Stripe, Square and QuickBooks exports for testing imports.
