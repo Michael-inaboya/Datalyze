@@ -1,0 +1,1153 @@
+Name,Email,Financial Status,Created at,Lineitem quantity,Lineitem name,Lineitem price,Lineitem discount,Billing Name,Total
+#1001,user36@example.com,paid,2025-01-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1002,user31@example.com,paid,2025-01-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1002,,,,2,Mug,12,0,,
+#1003,user31@example.com,paid,2025-01-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1004,user44@example.com,paid,2025-01-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1004,,,,2,Poster,18,0,,
+#1005,user57@example.com,paid,2025-01-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1005,,,,2,Mug,12,0,,
+#1006,user56@example.com,paid,2025-01-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1006,,,,2,Tee,25,0,,
+#1007,user33@example.com,paid,2025-01-11 10:15:00 -0500,1,Tee,25,0,X,50
+#1008,user22@example.com,paid,2025-01-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1009,user48@example.com,paid,2025-01-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1009,,,,2,Tee,25,0,,
+#1010,user11@example.com,paid,2025-01-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1010,,,,2,Poster,18,0,,
+#1011,user32@example.com,paid,2025-01-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1012,user37@example.com,paid,2025-01-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1012,,,,2,Poster,18,0,,
+#1013,user54@example.com,paid,2025-01-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1014,user47@example.com,paid,2025-01-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1014,,,,2,Tee,25,0,,
+#1015,user5@example.com,paid,2025-01-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1015,,,,2,Mug,12,0,,
+#1016,user49@example.com,paid,2025-01-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1017,user23@example.com,paid,2025-01-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1017,,,,2,Tee,25,0,,
+#1018,user19@example.com,paid,2025-01-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1018,,,,2,Mug,12,0,,
+#1019,user0@example.com,paid,2025-01-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1020,user14@example.com,paid,2025-01-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1020,,,,2,Poster,18,0,,
+#1021,user29@example.com,paid,2025-01-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1021,,,,2,Poster,18,0,,
+#1022,user46@example.com,paid,2025-01-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1023,user51@example.com,paid,2025-01-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1024,user27@example.com,paid,2025-01-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1025,user36@example.com,paid,2025-01-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1026,user52@example.com,paid,2025-01-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1026,,,,2,Mug,12,0,,
+#1027,user34@example.com,refunded,2025-01-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1027,,,,2,Mug,12,0,,
+#1028,user51@example.com,paid,2025-01-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1029,user35@example.com,paid,2025-01-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1030,user2@example.com,paid,2025-01-31 10:15:00 -0500,1,Mug,12,0,X,50
+#1031,user28@example.com,paid,2025-01-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1032,user17@example.com,paid,2025-01-31 10:15:00 -0500,1,Poster,18,0,X,50
+#1033,user18@example.com,paid,2025-02-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1034,user16@example.com,paid,2025-02-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1035,user41@example.com,paid,2025-02-02 10:15:00 -0500,1,Tee,25,0,X,50
+#1035,,,,2,Tee,25,0,,
+#1036,user7@example.com,paid,2025-02-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1037,user21@example.com,paid,2025-02-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1037,,,,2,Mug,12,0,,
+#1038,user16@example.com,paid,2025-02-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1039,user52@example.com,paid,2025-02-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1040,user9@example.com,paid,2025-02-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1041,user28@example.com,paid,2025-02-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1041,,,,2,Poster,18,0,,
+#1042,user51@example.com,paid,2025-02-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1042,,,,2,Poster,18,0,,
+#1043,user1@example.com,refunded,2025-02-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1043,,,,2,Tee,25,0,,
+#1044,user3@example.com,paid,2025-02-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1044,,,,2,Mug,12,0,,
+#1045,user19@example.com,paid,2025-02-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1046,user58@example.com,paid,2025-02-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1046,,,,2,Tee,25,0,,
+#1047,user36@example.com,paid,2025-02-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1047,,,,2,Poster,18,0,,
+#1048,user37@example.com,paid,2025-02-10 10:15:00 -0500,1,Poster,18,0,X,50
+#1049,user52@example.com,paid,2025-02-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1050,user22@example.com,refunded,2025-02-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1051,user37@example.com,paid,2025-02-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1052,user42@example.com,paid,2025-02-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1052,,,,2,Tee,25,0,,
+#1053,user1@example.com,paid,2025-02-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1053,,,,2,Tee,25,0,,
+#1054,user1@example.com,paid,2025-02-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1055,user21@example.com,paid,2025-02-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1055,,,,2,Poster,18,0,,
+#1056,user6@example.com,paid,2025-02-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1056,,,,2,Poster,18,0,,
+#1057,user49@example.com,paid,2025-02-18 10:15:00 -0500,1,Mug,12,0,X,50
+#1058,user5@example.com,paid,2025-02-18 10:15:00 -0500,1,Mug,12,0,X,50
+#1059,user58@example.com,paid,2025-02-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1060,user38@example.com,paid,2025-02-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1060,,,,2,Tee,25,0,,
+#1061,user18@example.com,paid,2025-02-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1062,user37@example.com,paid,2025-02-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1063,user26@example.com,paid,2025-02-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1064,user21@example.com,refunded,2025-02-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1065,user50@example.com,refunded,2025-02-24 10:15:00 -0500,1,Mug,12,0,X,50
+#1065,,,,2,Poster,18,0,,
+#1066,user36@example.com,paid,2025-02-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1067,user57@example.com,paid,2025-02-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1067,,,,2,Mug,12,0,,
+#1068,user57@example.com,paid,2025-02-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1068,,,,2,Tee,25,0,,
+#1069,user0@example.com,paid,2025-02-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1070,user7@example.com,paid,2025-02-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1071,user50@example.com,paid,2025-02-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1071,,,,2,Tee,25,0,,
+#1072,user43@example.com,paid,2025-03-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1073,user27@example.com,paid,2025-03-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1073,,,,2,Poster,18,0,,
+#1074,user45@example.com,paid,2025-03-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1074,,,,2,Mug,12,0,,
+#1075,user41@example.com,paid,2025-03-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1075,,,,2,Mug,12,0,,
+#1076,user50@example.com,refunded,2025-03-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1076,,,,2,Tee,25,0,,
+#1077,user25@example.com,paid,2025-03-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1077,,,,2,Mug,12,0,,
+#1078,user58@example.com,paid,2025-03-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1078,,,,2,Mug,12,0,,
+#1079,user16@example.com,paid,2025-03-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1080,user55@example.com,paid,2025-03-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1080,,,,2,Tee,25,0,,
+#1081,user34@example.com,paid,2025-03-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1082,user15@example.com,paid,2025-03-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1082,,,,2,Mug,12,0,,
+#1083,user5@example.com,paid,2025-03-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1083,,,,2,Tee,25,0,,
+#1084,user2@example.com,paid,2025-03-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1084,,,,2,Poster,18,0,,
+#1085,user57@example.com,paid,2025-03-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1085,,,,2,Mug,12,0,,
+#1086,user34@example.com,paid,2025-03-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1087,user51@example.com,paid,2025-03-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1088,user35@example.com,paid,2025-03-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1089,user1@example.com,paid,2025-03-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1090,user31@example.com,paid,2025-03-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1090,,,,2,Poster,18,0,,
+#1091,user4@example.com,paid,2025-03-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1092,user9@example.com,paid,2025-03-16 10:15:00 -0500,1,Tee,25,0,X,50
+#1092,,,,2,Poster,18,0,,
+#1093,user32@example.com,paid,2025-03-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1093,,,,2,Mug,12,0,,
+#1094,user49@example.com,paid,2025-03-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1094,,,,2,Poster,18,0,,
+#1095,user11@example.com,paid,2025-03-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1095,,,,2,Mug,12,0,,
+#1096,user3@example.com,paid,2025-03-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1097,user51@example.com,paid,2025-03-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1097,,,,2,Poster,18,0,,
+#1098,user28@example.com,paid,2025-03-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1098,,,,2,Tee,25,0,,
+#1099,user10@example.com,paid,2025-03-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1099,,,,2,Poster,18,0,,
+#1100,user59@example.com,paid,2025-03-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1100,,,,2,Mug,12,0,,
+#1101,user37@example.com,paid,2025-03-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1102,user8@example.com,paid,2025-03-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1102,,,,2,Poster,18,0,,
+#1103,user25@example.com,paid,2025-03-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1104,user31@example.com,paid,2025-03-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1105,user20@example.com,paid,2025-03-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1105,,,,2,Mug,12,0,,
+#1106,user31@example.com,paid,2025-03-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1106,,,,2,Tee,25,0,,
+#1107,user35@example.com,paid,2025-03-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1107,,,,2,Mug,12,0,,
+#1108,user58@example.com,paid,2025-03-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1109,user32@example.com,paid,2025-03-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1110,user44@example.com,paid,2025-03-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1110,,,,2,Mug,12,0,,
+#1111,user38@example.com,refunded,2025-04-01 10:15:00 -0500,1,Mug,12,0,X,50
+#1112,user32@example.com,paid,2025-04-01 10:15:00 -0500,1,Mug,12,0,X,50
+#1112,,,,2,Tee,25,0,,
+#1113,user27@example.com,paid,2025-04-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1114,user31@example.com,paid,2025-04-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1114,,,,2,Tee,25,0,,
+#1115,user34@example.com,paid,2025-04-03 10:15:00 -0500,1,Poster,18,0,X,50
+#1116,user51@example.com,paid,2025-04-03 10:15:00 -0500,1,Poster,18,0,X,50
+#1116,,,,2,Tee,25,0,,
+#1117,user8@example.com,paid,2025-04-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1118,user51@example.com,paid,2025-04-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1118,,,,2,Tee,25,0,,
+#1119,user28@example.com,paid,2025-04-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1120,user13@example.com,refunded,2025-04-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1121,user34@example.com,paid,2025-04-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1121,,,,2,Tee,25,0,,
+#1122,user24@example.com,paid,2025-04-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1123,user28@example.com,refunded,2025-04-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1124,user53@example.com,paid,2025-04-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1124,,,,2,Tee,25,0,,
+#1125,user9@example.com,paid,2025-04-11 10:15:00 -0500,1,Tee,25,0,X,50
+#1126,user53@example.com,paid,2025-04-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1126,,,,2,Tee,25,0,,
+#1127,user31@example.com,paid,2025-04-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1127,,,,2,Poster,18,0,,
+#1128,user56@example.com,paid,2025-04-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1128,,,,2,Mug,12,0,,
+#1129,user7@example.com,paid,2025-04-15 10:15:00 -0500,1,Poster,18,0,X,50
+#1130,user4@example.com,paid,2025-04-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1130,,,,2,Tee,25,0,,
+#1131,user32@example.com,paid,2025-04-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1131,,,,2,Mug,12,0,,
+#1132,user28@example.com,paid,2025-04-19 10:15:00 -0500,1,Tee,25,0,X,50
+#1132,,,,2,Poster,18,0,,
+#1133,user21@example.com,paid,2025-04-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1133,,,,2,Tee,25,0,,
+#1134,user13@example.com,refunded,2025-04-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1135,user46@example.com,refunded,2025-04-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1136,user53@example.com,paid,2025-04-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1136,,,,2,Poster,18,0,,
+#1137,user28@example.com,paid,2025-04-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1138,user0@example.com,paid,2025-04-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1138,,,,2,Tee,25,0,,
+#1139,user55@example.com,paid,2025-04-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1140,user40@example.com,paid,2025-04-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1140,,,,2,Tee,25,0,,
+#1141,user46@example.com,paid,2025-04-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1142,user54@example.com,refunded,2025-04-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1143,user0@example.com,paid,2025-04-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1143,,,,2,Poster,18,0,,
+#1144,user34@example.com,paid,2025-04-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1144,,,,2,Tee,25,0,,
+#1145,user10@example.com,paid,2025-04-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1145,,,,2,Tee,25,0,,
+#1146,user32@example.com,refunded,2025-04-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1147,user27@example.com,paid,2025-04-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1148,user42@example.com,paid,2025-04-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1148,,,,2,Poster,18,0,,
+#1149,user44@example.com,paid,2025-05-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1150,user38@example.com,paid,2025-05-01 10:15:00 -0500,1,Mug,12,0,X,50
+#1150,,,,2,Mug,12,0,,
+#1151,user56@example.com,paid,2025-05-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1151,,,,2,Mug,12,0,,
+#1152,user44@example.com,paid,2025-05-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1152,,,,2,Poster,18,0,,
+#1153,user10@example.com,paid,2025-05-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1153,,,,2,Tee,25,0,,
+#1154,user39@example.com,paid,2025-05-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1155,user25@example.com,paid,2025-05-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1156,user55@example.com,paid,2025-05-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1156,,,,2,Tee,25,0,,
+#1157,user54@example.com,paid,2025-05-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1158,user20@example.com,paid,2025-05-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1158,,,,2,Mug,12,0,,
+#1159,user40@example.com,paid,2025-05-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1160,user38@example.com,paid,2025-05-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1160,,,,2,Mug,12,0,,
+#1161,user8@example.com,paid,2025-05-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1162,user19@example.com,paid,2025-05-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1162,,,,2,Poster,18,0,,
+#1163,user13@example.com,paid,2025-05-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1163,,,,2,Mug,12,0,,
+#1164,user25@example.com,paid,2025-05-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1164,,,,2,Mug,12,0,,
+#1165,user3@example.com,paid,2025-05-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1166,user45@example.com,paid,2025-05-19 10:15:00 -0500,1,Tee,25,0,X,50
+#1166,,,,2,Mug,12,0,,
+#1167,user39@example.com,paid,2025-05-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1168,user25@example.com,paid,2025-05-19 10:15:00 -0500,1,Tee,25,0,X,50
+#1169,user24@example.com,paid,2025-05-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1170,user29@example.com,paid,2025-05-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1170,,,,2,Poster,18,0,,
+#1171,user16@example.com,refunded,2025-05-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1171,,,,2,Mug,12,0,,
+#1172,user58@example.com,paid,2025-05-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1173,user51@example.com,paid,2025-05-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1174,user54@example.com,paid,2025-05-25 10:15:00 -0500,1,Mug,12,0,X,50
+#1174,,,,2,Mug,12,0,,
+#1175,user56@example.com,paid,2025-05-25 10:15:00 -0500,1,Mug,12,0,X,50
+#1176,user24@example.com,paid,2025-05-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1177,user3@example.com,paid,2025-05-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1177,,,,2,Mug,12,0,,
+#1178,user41@example.com,paid,2025-05-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1178,,,,2,Poster,18,0,,
+#1179,user3@example.com,paid,2025-05-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1180,user49@example.com,paid,2025-05-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1181,user12@example.com,paid,2025-05-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1182,user43@example.com,paid,2025-05-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1183,user24@example.com,paid,2025-05-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1183,,,,2,Tee,25,0,,
+#1184,user41@example.com,paid,2025-05-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1185,user22@example.com,paid,2025-05-31 10:15:00 -0500,1,Poster,18,0,X,50
+#1185,,,,2,Poster,18,0,,
+#1186,user33@example.com,paid,2025-05-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1187,user34@example.com,paid,2025-06-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1188,user27@example.com,paid,2025-06-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1189,user47@example.com,paid,2025-06-02 10:15:00 -0500,1,Tee,25,0,X,50
+#1190,user6@example.com,paid,2025-06-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1191,user54@example.com,paid,2025-06-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1192,user58@example.com,paid,2025-06-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1192,,,,2,Mug,12,0,,
+#1193,user20@example.com,paid,2025-06-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1194,user2@example.com,paid,2025-06-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1194,,,,2,Tee,25,0,,
+#1195,user1@example.com,paid,2025-06-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1195,,,,2,Tee,25,0,,
+#1196,user5@example.com,paid,2025-06-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1196,,,,2,Mug,12,0,,
+#1197,user46@example.com,paid,2025-06-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1197,,,,2,Tee,25,0,,
+#1198,user50@example.com,paid,2025-06-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1198,,,,2,Mug,12,0,,
+#1199,user53@example.com,paid,2025-06-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1200,user13@example.com,paid,2025-06-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1200,,,,2,Tee,25,0,,
+#1201,user57@example.com,paid,2025-06-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1201,,,,2,Poster,18,0,,
+#1202,user52@example.com,paid,2025-06-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1202,,,,2,Poster,18,0,,
+#1203,user57@example.com,paid,2025-06-10 10:15:00 -0500,1,Poster,18,0,X,50
+#1203,,,,2,Mug,12,0,,
+#1204,user24@example.com,paid,2025-06-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1204,,,,2,Tee,25,0,,
+#1205,user8@example.com,paid,2025-06-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1206,user52@example.com,paid,2025-06-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1206,,,,2,Tee,25,0,,
+#1207,user17@example.com,paid,2025-06-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1207,,,,2,Poster,18,0,,
+#1208,user0@example.com,paid,2025-06-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1209,user58@example.com,refunded,2025-06-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1209,,,,2,Mug,12,0,,
+#1210,user17@example.com,paid,2025-06-16 10:15:00 -0500,1,Tee,25,0,X,50
+#1210,,,,2,Poster,18,0,,
+#1211,user24@example.com,paid,2025-06-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1212,user8@example.com,paid,2025-06-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1213,user36@example.com,refunded,2025-06-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1213,,,,2,Poster,18,0,,
+#1214,user23@example.com,paid,2025-06-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1214,,,,2,Tee,25,0,,
+#1215,user38@example.com,paid,2025-06-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1215,,,,2,Mug,12,0,,
+#1216,user1@example.com,paid,2025-06-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1217,user58@example.com,paid,2025-06-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1218,user46@example.com,paid,2025-06-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1219,user45@example.com,paid,2025-06-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1220,user4@example.com,paid,2025-06-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1221,user41@example.com,paid,2025-06-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1222,user37@example.com,paid,2025-06-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1222,,,,2,Mug,12,0,,
+#1223,user38@example.com,paid,2025-06-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1223,,,,2,Tee,25,0,,
+#1224,user43@example.com,paid,2025-06-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1224,,,,2,Tee,25,0,,
+#1225,user52@example.com,paid,2025-06-28 10:15:00 -0500,1,Tee,25,0,X,50
+#1225,,,,2,Mug,12,0,,
+#1226,user32@example.com,paid,2025-06-30 10:15:00 -0500,1,Mug,12,0,X,50
+#1226,,,,2,Poster,18,0,,
+#1227,user56@example.com,paid,2025-06-30 10:15:00 -0500,1,Mug,12,0,X,50
+#1227,,,,2,Tee,25,0,,
+#1228,user0@example.com,paid,2025-06-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1229,user34@example.com,paid,2025-06-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1230,user49@example.com,paid,2025-07-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1230,,,,2,Poster,18,0,,
+#1231,user52@example.com,refunded,2025-07-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1231,,,,2,Tee,25,0,,
+#1232,user28@example.com,paid,2025-07-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1232,,,,2,Tee,25,0,,
+#1233,user35@example.com,paid,2025-07-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1234,user27@example.com,paid,2025-07-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1235,user18@example.com,paid,2025-07-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1236,user54@example.com,paid,2025-07-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1237,user29@example.com,paid,2025-07-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1237,,,,2,Tee,25,0,,
+#1238,user24@example.com,paid,2025-07-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1238,,,,2,Tee,25,0,,
+#1239,user26@example.com,paid,2025-07-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1240,user52@example.com,paid,2025-07-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1240,,,,2,Poster,18,0,,
+#1241,user26@example.com,paid,2025-07-10 10:15:00 -0500,1,Poster,18,0,X,50
+#1241,,,,2,Poster,18,0,,
+#1242,user26@example.com,paid,2025-07-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1242,,,,2,Tee,25,0,,
+#1243,user13@example.com,paid,2025-07-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1243,,,,2,Mug,12,0,,
+#1244,user8@example.com,paid,2025-07-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1245,user6@example.com,paid,2025-07-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1245,,,,2,Mug,12,0,,
+#1246,user41@example.com,paid,2025-07-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1247,user27@example.com,paid,2025-07-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1248,user34@example.com,paid,2025-07-16 10:15:00 -0500,1,Tee,25,0,X,50
+#1248,,,,2,Poster,18,0,,
+#1249,user59@example.com,paid,2025-07-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1250,user53@example.com,paid,2025-07-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1251,user11@example.com,paid,2025-07-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1251,,,,2,Mug,12,0,,
+#1252,user43@example.com,paid,2025-07-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1253,user42@example.com,paid,2025-07-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1253,,,,2,Tee,25,0,,
+#1254,user7@example.com,paid,2025-07-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1254,,,,2,Tee,25,0,,
+#1255,user39@example.com,paid,2025-07-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1256,user16@example.com,paid,2025-07-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1256,,,,2,Tee,25,0,,
+#1257,user55@example.com,paid,2025-07-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1257,,,,2,Mug,12,0,,
+#1258,user55@example.com,paid,2025-07-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1258,,,,2,Poster,18,0,,
+#1259,user42@example.com,paid,2025-07-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1259,,,,2,Mug,12,0,,
+#1260,user34@example.com,paid,2025-07-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1260,,,,2,Mug,12,0,,
+#1261,user17@example.com,paid,2025-07-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1262,user8@example.com,paid,2025-07-24 10:15:00 -0500,1,Mug,12,0,X,50
+#1262,,,,2,Poster,18,0,,
+#1263,user40@example.com,refunded,2025-07-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1264,user26@example.com,paid,2025-07-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1264,,,,2,Poster,18,0,,
+#1265,user19@example.com,paid,2025-07-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1265,,,,2,Tee,25,0,,
+#1266,user38@example.com,paid,2025-07-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1266,,,,2,Mug,12,0,,
+#1267,user38@example.com,refunded,2025-07-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1268,user44@example.com,paid,2025-07-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1268,,,,2,Mug,12,0,,
+#1269,user33@example.com,paid,2025-07-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1270,user20@example.com,paid,2025-07-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1270,,,,2,Mug,12,0,,
+#1271,user8@example.com,paid,2025-07-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1272,user5@example.com,paid,2025-08-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1273,user43@example.com,refunded,2025-08-01 10:15:00 -0500,1,Mug,12,0,X,50
+#1274,user32@example.com,paid,2025-08-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1274,,,,2,Mug,12,0,,
+#1275,user49@example.com,refunded,2025-08-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1276,user5@example.com,paid,2025-08-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1277,user17@example.com,paid,2025-08-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1277,,,,2,Tee,25,0,,
+#1278,user8@example.com,paid,2025-08-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1279,user43@example.com,paid,2025-08-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1280,user5@example.com,paid,2025-08-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1281,user17@example.com,paid,2025-08-09 10:15:00 -0500,1,Tee,25,0,X,50
+#1282,user5@example.com,paid,2025-08-09 10:15:00 -0500,1,Tee,25,0,X,50
+#1283,user6@example.com,paid,2025-08-11 10:15:00 -0500,1,Tee,25,0,X,50
+#1283,,,,2,Poster,18,0,,
+#1284,user56@example.com,paid,2025-08-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1284,,,,2,Poster,18,0,,
+#1285,user38@example.com,paid,2025-08-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1285,,,,2,Poster,18,0,,
+#1286,user36@example.com,paid,2025-08-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1286,,,,2,Poster,18,0,,
+#1287,user19@example.com,paid,2025-08-15 10:15:00 -0500,1,Poster,18,0,X,50
+#1288,user35@example.com,refunded,2025-08-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1289,user32@example.com,paid,2025-08-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1290,user13@example.com,paid,2025-08-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1290,,,,2,Mug,12,0,,
+#1291,user34@example.com,paid,2025-08-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1291,,,,2,Tee,25,0,,
+#1292,user8@example.com,paid,2025-08-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1292,,,,2,Poster,18,0,,
+#1293,user23@example.com,paid,2025-08-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1294,user34@example.com,paid,2025-08-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1295,user28@example.com,paid,2025-08-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1296,user58@example.com,paid,2025-08-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1297,user53@example.com,paid,2025-08-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1297,,,,2,Mug,12,0,,
+#1298,user9@example.com,paid,2025-08-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1298,,,,2,Mug,12,0,,
+#1299,user38@example.com,paid,2025-08-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1300,user42@example.com,paid,2025-08-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1301,user24@example.com,paid,2025-08-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1302,user49@example.com,paid,2025-08-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1302,,,,2,Tee,25,0,,
+#1303,user26@example.com,paid,2025-08-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1303,,,,2,Mug,12,0,,
+#1304,user6@example.com,paid,2025-08-25 10:15:00 -0500,1,Mug,12,0,X,50
+#1304,,,,2,Mug,12,0,,
+#1305,user53@example.com,paid,2025-08-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1306,user35@example.com,paid,2025-08-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1306,,,,2,Tee,25,0,,
+#1307,user52@example.com,paid,2025-08-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1308,user6@example.com,paid,2025-08-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1308,,,,2,Mug,12,0,,
+#1309,user27@example.com,paid,2025-08-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1309,,,,2,Poster,18,0,,
+#1310,user27@example.com,paid,2025-08-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1310,,,,2,Tee,25,0,,
+#1311,user48@example.com,paid,2025-08-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1311,,,,2,Poster,18,0,,
+#1312,user3@example.com,paid,2025-08-31 10:15:00 -0500,1,Poster,18,0,X,50
+#1312,,,,2,Poster,18,0,,
+#1313,user11@example.com,paid,2025-08-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1313,,,,2,Poster,18,0,,
+#1314,user30@example.com,paid,2025-09-02 10:15:00 -0500,1,Tee,25,0,X,50
+#1315,user45@example.com,paid,2025-09-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1316,user21@example.com,paid,2025-09-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1316,,,,2,Poster,18,0,,
+#1317,user29@example.com,paid,2025-09-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1317,,,,2,Poster,18,0,,
+#1318,user49@example.com,paid,2025-09-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1319,user34@example.com,paid,2025-09-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1320,user59@example.com,paid,2025-09-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1320,,,,2,Mug,12,0,,
+#1321,user24@example.com,paid,2025-09-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1321,,,,2,Poster,18,0,,
+#1322,user4@example.com,paid,2025-09-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1323,user58@example.com,paid,2025-09-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1324,user52@example.com,paid,2025-09-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1325,user29@example.com,paid,2025-09-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1325,,,,2,Poster,18,0,,
+#1326,user0@example.com,paid,2025-09-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1327,user42@example.com,paid,2025-09-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1328,user4@example.com,paid,2025-09-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1329,user37@example.com,paid,2025-09-10 10:15:00 -0500,1,Poster,18,0,X,50
+#1330,user15@example.com,paid,2025-09-12 10:15:00 -0500,1,Poster,18,0,X,50
+#1331,user44@example.com,paid,2025-09-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1332,user49@example.com,refunded,2025-09-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1332,,,,2,Poster,18,0,,
+#1333,user3@example.com,paid,2025-09-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1333,,,,2,Mug,12,0,,
+#1334,user2@example.com,paid,2025-09-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1335,user54@example.com,paid,2025-09-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1335,,,,2,Poster,18,0,,
+#1336,user26@example.com,paid,2025-09-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1337,user35@example.com,paid,2025-09-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1337,,,,2,Poster,18,0,,
+#1338,user35@example.com,paid,2025-09-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1339,user44@example.com,paid,2025-09-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1339,,,,2,Tee,25,0,,
+#1340,user23@example.com,refunded,2025-09-16 10:15:00 -0500,1,Tee,25,0,X,50
+#1341,user17@example.com,refunded,2025-09-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1342,user46@example.com,paid,2025-09-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1342,,,,2,Tee,25,0,,
+#1343,user16@example.com,paid,2025-09-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1343,,,,2,Poster,18,0,,
+#1344,user29@example.com,paid,2025-09-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1345,user16@example.com,paid,2025-09-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1346,user34@example.com,paid,2025-09-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1346,,,,2,Poster,18,0,,
+#1347,user8@example.com,paid,2025-09-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1347,,,,2,Mug,12,0,,
+#1348,user9@example.com,paid,2025-09-24 10:15:00 -0500,1,Mug,12,0,X,50
+#1349,user26@example.com,refunded,2025-09-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1350,user8@example.com,paid,2025-09-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1351,user8@example.com,paid,2025-09-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1351,,,,2,Tee,25,0,,
+#1352,user47@example.com,paid,2025-09-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1353,user22@example.com,paid,2025-09-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1353,,,,2,Mug,12,0,,
+#1354,user32@example.com,paid,2025-09-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1354,,,,2,Mug,12,0,,
+#1355,user51@example.com,paid,2025-09-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1356,user48@example.com,refunded,2025-09-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1356,,,,2,Mug,12,0,,
+#1357,user3@example.com,paid,2025-09-30 10:15:00 -0500,1,Mug,12,0,X,50
+#1357,,,,2,Poster,18,0,,
+#1358,user7@example.com,refunded,2025-10-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1358,,,,2,Mug,12,0,,
+#1359,user32@example.com,paid,2025-10-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1359,,,,2,Tee,25,0,,
+#1360,user42@example.com,refunded,2025-10-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1361,user46@example.com,paid,2025-10-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1362,user51@example.com,paid,2025-10-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1363,user42@example.com,refunded,2025-10-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1363,,,,2,Mug,12,0,,
+#1364,user2@example.com,paid,2025-10-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1365,user32@example.com,paid,2025-10-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1366,user49@example.com,paid,2025-10-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1366,,,,2,Tee,25,0,,
+#1367,user42@example.com,paid,2025-10-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1368,user29@example.com,paid,2025-10-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1369,user52@example.com,paid,2025-10-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1369,,,,2,Mug,12,0,,
+#1370,user43@example.com,paid,2025-10-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1371,user12@example.com,paid,2025-10-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1372,user12@example.com,paid,2025-10-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1372,,,,2,Mug,12,0,,
+#1373,user23@example.com,paid,2025-10-16 10:15:00 -0500,1,Tee,25,0,X,50
+#1374,user29@example.com,paid,2025-10-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1375,user54@example.com,paid,2025-10-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1375,,,,2,Poster,18,0,,
+#1376,user32@example.com,paid,2025-10-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1377,user25@example.com,paid,2025-10-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1377,,,,2,Tee,25,0,,
+#1378,user59@example.com,paid,2025-10-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1379,user1@example.com,refunded,2025-10-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1379,,,,2,Poster,18,0,,
+#1380,user20@example.com,refunded,2025-10-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1381,user35@example.com,refunded,2025-10-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1381,,,,2,Tee,25,0,,
+#1382,user25@example.com,refunded,2025-10-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1383,user7@example.com,paid,2025-10-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1384,user0@example.com,paid,2025-10-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1385,user59@example.com,paid,2025-10-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1385,,,,2,Poster,18,0,,
+#1386,user37@example.com,paid,2025-10-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1387,user54@example.com,paid,2025-10-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1387,,,,2,Poster,18,0,,
+#1388,user0@example.com,paid,2025-10-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1389,user9@example.com,paid,2025-10-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1390,user25@example.com,paid,2025-10-28 10:15:00 -0500,1,Poster,18,0,X,50
+#1390,,,,2,Tee,25,0,,
+#1391,user54@example.com,paid,2025-10-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1391,,,,2,Mug,12,0,,
+#1392,user45@example.com,paid,2025-10-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1393,user52@example.com,paid,2025-10-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1393,,,,2,Tee,25,0,,
+#1394,user4@example.com,paid,2025-11-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1395,user8@example.com,paid,2025-11-03 10:15:00 -0500,1,Poster,18,0,X,50
+#1395,,,,2,Mug,12,0,,
+#1396,user6@example.com,paid,2025-11-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1396,,,,2,Mug,12,0,,
+#1397,user47@example.com,paid,2025-11-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1397,,,,2,Mug,12,0,,
+#1398,user21@example.com,paid,2025-11-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1398,,,,2,Mug,12,0,,
+#1399,user28@example.com,paid,2025-11-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1399,,,,2,Mug,12,0,,
+#1400,user20@example.com,paid,2025-11-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1400,,,,2,Poster,18,0,,
+#1401,user45@example.com,paid,2025-11-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1401,,,,2,Mug,12,0,,
+#1402,user37@example.com,paid,2025-11-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1403,user46@example.com,paid,2025-11-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1403,,,,2,Mug,12,0,,
+#1404,user29@example.com,paid,2025-11-15 10:15:00 -0500,1,Poster,18,0,X,50
+#1404,,,,2,Mug,12,0,,
+#1405,user59@example.com,paid,2025-11-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1406,user2@example.com,paid,2025-11-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1407,user0@example.com,paid,2025-11-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1408,user2@example.com,paid,2025-11-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1409,user18@example.com,paid,2025-11-19 10:15:00 -0500,1,Tee,25,0,X,50
+#1410,user20@example.com,paid,2025-11-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1410,,,,2,Mug,12,0,,
+#1411,user38@example.com,refunded,2025-11-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1412,user19@example.com,paid,2025-11-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1412,,,,2,Tee,25,0,,
+#1413,user31@example.com,refunded,2025-11-23 10:15:00 -0500,1,Mug,12,0,X,50
+#1414,user52@example.com,paid,2025-11-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1414,,,,2,Poster,18,0,,
+#1415,user26@example.com,paid,2025-11-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1416,user51@example.com,refunded,2025-11-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1416,,,,2,Poster,18,0,,
+#1417,user35@example.com,refunded,2025-11-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1417,,,,2,Tee,25,0,,
+#1418,user10@example.com,paid,2025-11-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1418,,,,2,Tee,25,0,,
+#1419,user36@example.com,paid,2025-11-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1419,,,,2,Tee,25,0,,
+#1420,user16@example.com,refunded,2025-11-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1420,,,,2,Mug,12,0,,
+#1421,user50@example.com,paid,2025-11-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1421,,,,2,Mug,12,0,,
+#1422,user13@example.com,paid,2025-11-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1422,,,,2,Tee,25,0,,
+#1423,user55@example.com,paid,2025-11-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1423,,,,2,Tee,25,0,,
+#1424,user55@example.com,paid,2025-11-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1425,user47@example.com,paid,2025-11-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1426,user20@example.com,refunded,2025-12-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1426,,,,2,Mug,12,0,,
+#1427,user45@example.com,paid,2025-12-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1428,user42@example.com,paid,2025-12-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1429,user38@example.com,paid,2025-12-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1429,,,,2,Poster,18,0,,
+#1430,user44@example.com,refunded,2025-12-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1431,user41@example.com,paid,2025-12-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1431,,,,2,Tee,25,0,,
+#1432,user26@example.com,paid,2025-12-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1432,,,,2,Tee,25,0,,
+#1433,user38@example.com,paid,2025-12-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1434,user40@example.com,paid,2025-12-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1435,user13@example.com,paid,2025-12-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1436,user47@example.com,paid,2025-12-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1436,,,,2,Tee,25,0,,
+#1437,user31@example.com,paid,2025-12-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1438,user1@example.com,paid,2025-12-09 10:15:00 -0500,1,Tee,25,0,X,50
+#1438,,,,2,Tee,25,0,,
+#1439,user20@example.com,paid,2025-12-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1440,user51@example.com,paid,2025-12-11 10:15:00 -0500,1,Tee,25,0,X,50
+#1440,,,,2,Tee,25,0,,
+#1441,user48@example.com,paid,2025-12-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1442,user7@example.com,paid,2025-12-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1443,user23@example.com,paid,2025-12-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1444,user38@example.com,paid,2025-12-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1445,user59@example.com,paid,2025-12-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1446,user0@example.com,paid,2025-12-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1447,user3@example.com,paid,2025-12-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1448,user21@example.com,paid,2025-12-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1449,user35@example.com,paid,2025-12-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1450,user17@example.com,paid,2025-12-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1450,,,,2,Poster,18,0,,
+#1451,user56@example.com,paid,2025-12-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1452,user25@example.com,paid,2025-12-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1453,user44@example.com,paid,2025-12-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1453,,,,2,Tee,25,0,,
+#1454,user7@example.com,paid,2025-12-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1455,user32@example.com,paid,2025-12-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1456,user14@example.com,paid,2025-12-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1457,user3@example.com,paid,2025-12-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1457,,,,2,Mug,12,0,,
+#1458,user9@example.com,paid,2025-12-23 10:15:00 -0500,1,Mug,12,0,X,50
+#1459,user22@example.com,paid,2025-12-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1460,user28@example.com,paid,2025-12-23 10:15:00 -0500,1,Mug,12,0,X,50
+#1461,user7@example.com,paid,2025-12-23 10:15:00 -0500,1,Mug,12,0,X,50
+#1462,user5@example.com,paid,2025-12-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1463,user55@example.com,paid,2025-12-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1464,user46@example.com,paid,2025-12-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1464,,,,2,Tee,25,0,,
+#1465,user22@example.com,refunded,2025-12-27 10:15:00 -0500,1,Poster,18,0,X,50
+#1465,,,,2,Tee,25,0,,
+#1466,user55@example.com,paid,2025-12-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1466,,,,2,Mug,12,0,,
+#1467,user56@example.com,refunded,2025-12-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1467,,,,2,Poster,18,0,,
+#1468,user7@example.com,paid,2025-12-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1469,user56@example.com,paid,2025-12-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1469,,,,2,Tee,25,0,,
+#1470,user48@example.com,paid,2025-12-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1470,,,,2,Tee,25,0,,
+#1471,user20@example.com,paid,2025-12-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1471,,,,2,Mug,12,0,,
+#1472,user23@example.com,paid,2025-12-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1473,user19@example.com,paid,2025-12-31 10:15:00 -0500,1,Poster,18,0,X,50
+#1474,user29@example.com,paid,2026-01-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1475,user5@example.com,paid,2026-01-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1475,,,,2,Poster,18,0,,
+#1476,user10@example.com,paid,2026-01-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1476,,,,2,Mug,12,0,,
+#1477,user27@example.com,paid,2026-01-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1478,user56@example.com,paid,2026-01-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1478,,,,2,Poster,18,0,,
+#1479,user4@example.com,paid,2026-01-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1480,user2@example.com,paid,2026-01-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1481,user41@example.com,paid,2026-01-06 10:15:00 -0500,1,Poster,18,0,X,50
+#1481,,,,2,Poster,18,0,,
+#1482,user54@example.com,paid,2026-01-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1482,,,,2,Mug,12,0,,
+#1483,user24@example.com,refunded,2026-01-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1484,user45@example.com,paid,2026-01-08 10:15:00 -0500,1,Mug,12,0,X,50
+#1485,user20@example.com,paid,2026-01-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1485,,,,2,Mug,12,0,,
+#1486,user14@example.com,refunded,2026-01-10 10:15:00 -0500,1,Poster,18,0,X,50
+#1486,,,,2,Mug,12,0,,
+#1487,user12@example.com,paid,2026-01-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1488,user32@example.com,paid,2026-01-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1488,,,,2,Mug,12,0,,
+#1489,user4@example.com,paid,2026-01-12 10:15:00 -0500,1,Poster,18,0,X,50
+#1489,,,,2,Poster,18,0,,
+#1490,user57@example.com,refunded,2026-01-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1490,,,,2,Poster,18,0,,
+#1491,user11@example.com,paid,2026-01-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1491,,,,2,Mug,12,0,,
+#1492,user17@example.com,paid,2026-01-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1493,user8@example.com,paid,2026-01-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1494,user31@example.com,paid,2026-01-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1494,,,,2,Tee,25,0,,
+#1495,user39@example.com,paid,2026-01-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1496,user28@example.com,paid,2026-01-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1497,user36@example.com,paid,2026-01-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1498,user56@example.com,paid,2026-01-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1498,,,,2,Mug,12,0,,
+#1499,user31@example.com,paid,2026-01-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1499,,,,2,Mug,12,0,,
+#1500,user32@example.com,refunded,2026-01-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1500,,,,2,Poster,18,0,,
+#1501,user19@example.com,paid,2026-01-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1501,,,,2,Tee,25,0,,
+#1502,user26@example.com,paid,2026-01-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1503,user42@example.com,paid,2026-01-24 10:15:00 -0500,1,Mug,12,0,X,50
+#1503,,,,2,Tee,25,0,,
+#1504,user14@example.com,paid,2026-01-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1504,,,,2,Tee,25,0,,
+#1505,user26@example.com,paid,2026-01-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1506,user40@example.com,paid,2026-01-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1506,,,,2,Tee,25,0,,
+#1507,user27@example.com,paid,2026-01-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1508,user49@example.com,paid,2026-01-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1508,,,,2,Poster,18,0,,
+#1509,user43@example.com,paid,2026-01-28 10:15:00 -0500,1,Tee,25,0,X,50
+#1510,user22@example.com,paid,2026-01-28 10:15:00 -0500,1,Tee,25,0,X,50
+#1511,user33@example.com,paid,2026-01-28 10:15:00 -0500,1,Tee,25,0,X,50
+#1512,user53@example.com,paid,2026-01-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1512,,,,2,Mug,12,0,,
+#1513,user46@example.com,paid,2026-01-30 10:15:00 -0500,1,Mug,12,0,X,50
+#1514,user33@example.com,paid,2026-02-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1514,,,,2,Poster,18,0,,
+#1515,user58@example.com,paid,2026-02-03 10:15:00 -0500,1,Poster,18,0,X,50
+#1516,user25@example.com,paid,2026-02-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1517,user46@example.com,refunded,2026-02-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1517,,,,2,Poster,18,0,,
+#1518,user3@example.com,paid,2026-02-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1518,,,,2,Mug,12,0,,
+#1519,user44@example.com,paid,2026-02-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1519,,,,2,Tee,25,0,,
+#1520,user12@example.com,paid,2026-02-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1521,user23@example.com,refunded,2026-02-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1521,,,,2,Tee,25,0,,
+#1522,user0@example.com,paid,2026-02-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1523,user28@example.com,paid,2026-02-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1524,user25@example.com,paid,2026-02-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1524,,,,2,Tee,25,0,,
+#1525,user8@example.com,paid,2026-02-09 10:15:00 -0500,1,Tee,25,0,X,50
+#1526,user51@example.com,paid,2026-02-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1526,,,,2,Poster,18,0,,
+#1527,user27@example.com,paid,2026-02-11 10:15:00 -0500,1,Tee,25,0,X,50
+#1527,,,,2,Poster,18,0,,
+#1528,user10@example.com,paid,2026-02-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1528,,,,2,Tee,25,0,,
+#1529,user43@example.com,paid,2026-02-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1530,user52@example.com,paid,2026-02-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1530,,,,2,Tee,25,0,,
+#1531,user39@example.com,paid,2026-02-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1531,,,,2,Tee,25,0,,
+#1532,user23@example.com,paid,2026-02-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1533,user6@example.com,paid,2026-02-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1533,,,,2,Tee,25,0,,
+#1534,user30@example.com,refunded,2026-02-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1534,,,,2,Mug,12,0,,
+#1535,user37@example.com,paid,2026-02-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1536,user24@example.com,paid,2026-02-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1536,,,,2,Poster,18,0,,
+#1537,user17@example.com,paid,2026-02-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1538,user3@example.com,paid,2026-02-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1539,user28@example.com,paid,2026-02-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1539,,,,2,Poster,18,0,,
+#1540,user24@example.com,paid,2026-02-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1541,user59@example.com,paid,2026-02-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1541,,,,2,Poster,18,0,,
+#1542,user6@example.com,paid,2026-02-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1543,user55@example.com,paid,2026-02-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1543,,,,2,Poster,18,0,,
+#1544,user20@example.com,paid,2026-02-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1545,user39@example.com,paid,2026-02-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1546,user41@example.com,paid,2026-03-01 10:15:00 -0500,1,Mug,12,0,X,50
+#1547,user27@example.com,paid,2026-03-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1548,user23@example.com,paid,2026-03-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1548,,,,2,Mug,12,0,,
+#1549,user24@example.com,paid,2026-03-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1549,,,,2,Tee,25,0,,
+#1550,user41@example.com,paid,2026-03-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1550,,,,2,Mug,12,0,,
+#1551,user6@example.com,paid,2026-03-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1551,,,,2,Mug,12,0,,
+#1552,user29@example.com,paid,2026-03-03 10:15:00 -0500,1,Poster,18,0,X,50
+#1553,user20@example.com,paid,2026-03-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1553,,,,2,Poster,18,0,,
+#1554,user21@example.com,refunded,2026-03-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1554,,,,2,Tee,25,0,,
+#1555,user20@example.com,paid,2026-03-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1555,,,,2,Poster,18,0,,
+#1556,user10@example.com,paid,2026-03-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1557,user54@example.com,paid,2026-03-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1558,user21@example.com,paid,2026-03-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1558,,,,2,Tee,25,0,,
+#1559,user38@example.com,paid,2026-03-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1559,,,,2,Mug,12,0,,
+#1560,user20@example.com,paid,2026-03-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1560,,,,2,Poster,18,0,,
+#1561,user49@example.com,paid,2026-03-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1562,user38@example.com,paid,2026-03-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1563,user52@example.com,paid,2026-03-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1563,,,,2,Poster,18,0,,
+#1564,user55@example.com,paid,2026-03-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1564,,,,2,Mug,12,0,,
+#1565,user5@example.com,paid,2026-03-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1565,,,,2,Poster,18,0,,
+#1566,user50@example.com,paid,2026-03-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1567,user24@example.com,paid,2026-03-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1567,,,,2,Poster,18,0,,
+#1568,user13@example.com,paid,2026-03-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1569,user34@example.com,paid,2026-03-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1570,user28@example.com,paid,2026-03-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1571,user38@example.com,paid,2026-03-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1571,,,,2,Mug,12,0,,
+#1572,user22@example.com,paid,2026-03-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1573,user44@example.com,paid,2026-03-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1573,,,,2,Mug,12,0,,
+#1574,user8@example.com,paid,2026-03-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1574,,,,2,Mug,12,0,,
+#1575,user45@example.com,paid,2026-03-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1576,user4@example.com,paid,2026-03-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1576,,,,2,Poster,18,0,,
+#1577,user29@example.com,paid,2026-03-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1578,user44@example.com,paid,2026-03-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1579,user2@example.com,paid,2026-03-25 10:15:00 -0500,1,Poster,18,0,X,50
+#1579,,,,2,Mug,12,0,,
+#1580,user52@example.com,paid,2026-03-27 10:15:00 -0500,1,Tee,25,0,X,50
+#1581,user28@example.com,paid,2026-03-29 10:15:00 -0500,1,Poster,18,0,X,50
+#1581,,,,2,Mug,12,0,,
+#1582,user23@example.com,paid,2026-03-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1582,,,,2,Tee,25,0,,
+#1583,user23@example.com,paid,2026-03-31 10:15:00 -0500,1,Mug,12,0,X,50
+#1584,user9@example.com,paid,2026-03-31 10:15:00 -0500,1,Mug,12,0,X,50
+#1585,user15@example.com,refunded,2026-03-31 10:15:00 -0500,1,Tee,25,0,X,50
+#1585,,,,2,Tee,25,0,,
+#1586,user3@example.com,paid,2026-04-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1587,user27@example.com,paid,2026-04-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1587,,,,2,Mug,12,0,,
+#1588,user57@example.com,refunded,2026-04-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1588,,,,2,Poster,18,0,,
+#1589,user3@example.com,paid,2026-04-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1589,,,,2,Tee,25,0,,
+#1590,user37@example.com,paid,2026-04-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1591,user40@example.com,paid,2026-04-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1592,user51@example.com,paid,2026-04-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1593,user18@example.com,paid,2026-04-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1594,user30@example.com,paid,2026-04-10 10:15:00 -0500,1,Poster,18,0,X,50
+#1595,user30@example.com,paid,2026-04-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1596,user41@example.com,paid,2026-04-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1596,,,,2,Tee,25,0,,
+#1597,user30@example.com,paid,2026-04-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1597,,,,2,Mug,12,0,,
+#1598,user13@example.com,paid,2026-04-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1598,,,,2,Tee,25,0,,
+#1599,user6@example.com,refunded,2026-04-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1600,user0@example.com,paid,2026-04-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1600,,,,2,Tee,25,0,,
+#1601,user39@example.com,paid,2026-04-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1602,user35@example.com,paid,2026-04-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1602,,,,2,Poster,18,0,,
+#1603,user38@example.com,refunded,2026-04-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1604,user30@example.com,paid,2026-04-18 10:15:00 -0500,1,Mug,12,0,X,50
+#1604,,,,2,Tee,25,0,,
+#1605,user28@example.com,paid,2026-04-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1606,user11@example.com,paid,2026-04-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1606,,,,2,Poster,18,0,,
+#1607,user37@example.com,paid,2026-04-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1608,user42@example.com,paid,2026-04-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1608,,,,2,Poster,18,0,,
+#1609,user30@example.com,paid,2026-04-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1610,user4@example.com,paid,2026-04-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1611,user52@example.com,paid,2026-04-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1611,,,,2,Poster,18,0,,
+#1612,user56@example.com,paid,2026-04-22 10:15:00 -0500,1,Mug,12,0,X,50
+#1612,,,,2,Poster,18,0,,
+#1613,user29@example.com,paid,2026-04-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1614,user46@example.com,paid,2026-04-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1614,,,,2,Mug,12,0,,
+#1615,user34@example.com,refunded,2026-04-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1616,user50@example.com,paid,2026-04-28 10:15:00 -0500,1,Tee,25,0,X,50
+#1616,,,,2,Poster,18,0,,
+#1617,user46@example.com,paid,2026-04-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1618,user7@example.com,paid,2026-04-30 10:15:00 -0500,1,Poster,18,0,X,50
+#1619,user38@example.com,refunded,2026-04-30 10:15:00 -0500,1,Mug,12,0,X,50
+#1619,,,,2,Tee,25,0,,
+#1620,user37@example.com,paid,2026-05-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1621,user3@example.com,paid,2026-05-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1622,user35@example.com,paid,2026-05-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1622,,,,2,Poster,18,0,,
+#1623,user14@example.com,paid,2026-05-04 10:15:00 -0500,1,Mug,12,0,X,50
+#1624,user22@example.com,refunded,2026-05-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1624,,,,2,Mug,12,0,,
+#1625,user36@example.com,refunded,2026-05-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1626,user16@example.com,paid,2026-05-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1627,user39@example.com,paid,2026-05-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1627,,,,2,Tee,25,0,,
+#1628,user11@example.com,paid,2026-05-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1629,user54@example.com,paid,2026-05-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1629,,,,2,Poster,18,0,,
+#1630,user58@example.com,paid,2026-05-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1631,user14@example.com,paid,2026-05-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1632,user55@example.com,paid,2026-05-10 10:15:00 -0500,1,Tee,25,0,X,50
+#1632,,,,2,Mug,12,0,,
+#1633,user9@example.com,paid,2026-05-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1633,,,,2,Poster,18,0,,
+#1634,user46@example.com,paid,2026-05-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1635,user16@example.com,paid,2026-05-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1635,,,,2,Poster,18,0,,
+#1636,user42@example.com,paid,2026-05-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1637,user34@example.com,paid,2026-05-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1638,user54@example.com,paid,2026-05-14 10:15:00 -0500,1,Poster,18,0,X,50
+#1638,,,,2,Tee,25,0,,
+#1639,user44@example.com,paid,2026-05-14 10:15:00 -0500,1,Mug,12,0,X,50
+#1639,,,,2,Tee,25,0,,
+#1640,user15@example.com,refunded,2026-05-16 10:15:00 -0500,1,Tee,25,0,X,50
+#1641,user11@example.com,refunded,2026-05-18 10:15:00 -0500,1,Tee,25,0,X,50
+#1641,,,,2,Poster,18,0,,
+#1642,user25@example.com,paid,2026-05-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1642,,,,2,Mug,12,0,,
+#1643,user27@example.com,paid,2026-05-20 10:15:00 -0500,1,Mug,12,0,X,50
+#1644,user24@example.com,paid,2026-05-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1644,,,,2,Mug,12,0,,
+#1645,user38@example.com,refunded,2026-05-20 10:15:00 -0500,1,Tee,25,0,X,50
+#1645,,,,2,Tee,25,0,,
+#1646,user32@example.com,paid,2026-05-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1647,user35@example.com,paid,2026-05-22 10:15:00 -0500,1,Poster,18,0,X,50
+#1647,,,,2,Poster,18,0,,
+#1648,user42@example.com,paid,2026-05-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1649,user48@example.com,paid,2026-05-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1650,user51@example.com,paid,2026-05-24 10:15:00 -0500,1,Tee,25,0,X,50
+#1651,user1@example.com,paid,2026-05-24 10:15:00 -0500,1,Poster,18,0,X,50
+#1651,,,,2,Poster,18,0,,
+#1652,user31@example.com,paid,2026-05-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1653,user24@example.com,refunded,2026-05-26 10:15:00 -0500,1,Tee,25,0,X,50
+#1654,user5@example.com,paid,2026-05-26 10:15:00 -0500,1,Poster,18,0,X,50
+#1655,user57@example.com,paid,2026-05-26 10:15:00 -0500,1,Mug,12,0,X,50
+#1655,,,,2,Poster,18,0,,
+#1656,user22@example.com,paid,2026-05-28 10:15:00 -0500,1,Mug,12,0,X,50
+#1657,user37@example.com,paid,2026-05-30 10:15:00 -0500,1,Tee,25,0,X,50
+#1657,,,,2,Mug,12,0,,
+#1658,user39@example.com,paid,2026-06-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1658,,,,2,Poster,18,0,,
+#1659,user22@example.com,refunded,2026-06-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1660,user14@example.com,paid,2026-06-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1661,user19@example.com,paid,2026-06-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1661,,,,2,Poster,18,0,,
+#1662,user37@example.com,paid,2026-06-03 10:15:00 -0500,1,Poster,18,0,X,50
+#1663,user16@example.com,paid,2026-06-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1664,user55@example.com,paid,2026-06-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1665,user12@example.com,paid,2026-06-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1666,user58@example.com,paid,2026-06-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1667,user58@example.com,paid,2026-06-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1668,user28@example.com,paid,2026-06-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1669,user49@example.com,paid,2026-06-07 10:15:00 -0500,1,Poster,18,0,X,50
+#1670,user32@example.com,paid,2026-06-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1670,,,,2,Mug,12,0,,
+#1671,user4@example.com,paid,2026-06-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1672,user45@example.com,refunded,2026-06-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1672,,,,2,Mug,12,0,,
+#1673,user29@example.com,paid,2026-06-09 10:15:00 -0500,1,Poster,18,0,X,50
+#1673,,,,2,Mug,12,0,,
+#1674,user0@example.com,paid,2026-06-09 10:15:00 -0500,1,Tee,25,0,X,50
+#1675,user33@example.com,paid,2026-06-09 10:15:00 -0500,1,Tee,25,0,X,50
+#1675,,,,2,Tee,25,0,,
+#1676,user18@example.com,paid,2026-06-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1677,user40@example.com,paid,2026-06-11 10:15:00 -0500,1,Mug,12,0,X,50
+#1677,,,,2,Mug,12,0,,
+#1678,user20@example.com,paid,2026-06-11 10:15:00 -0500,1,Poster,18,0,X,50
+#1678,,,,2,Mug,12,0,,
+#1679,user43@example.com,paid,2026-06-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1680,user12@example.com,refunded,2026-06-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1681,user28@example.com,paid,2026-06-15 10:15:00 -0500,1,Poster,18,0,X,50
+#1682,user11@example.com,paid,2026-06-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1683,user4@example.com,paid,2026-06-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1684,user58@example.com,paid,2026-06-17 10:15:00 -0500,1,Poster,18,0,X,50
+#1685,user16@example.com,paid,2026-06-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1686,user22@example.com,paid,2026-06-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1686,,,,2,Tee,25,0,,
+#1687,user33@example.com,paid,2026-06-19 10:15:00 -0500,1,Tee,25,0,X,50
+#1687,,,,2,Mug,12,0,,
+#1688,user48@example.com,paid,2026-06-19 10:15:00 -0500,1,Poster,18,0,X,50
+#1688,,,,2,Mug,12,0,,
+#1689,user33@example.com,paid,2026-06-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1690,user54@example.com,paid,2026-06-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1690,,,,2,Tee,25,0,,
+#1691,user2@example.com,refunded,2026-06-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1691,,,,2,Tee,25,0,,
+#1692,user53@example.com,paid,2026-06-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1693,user8@example.com,paid,2026-06-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1693,,,,2,Poster,18,0,,
+#1694,user17@example.com,paid,2026-06-23 10:15:00 -0500,1,Mug,12,0,X,50
+#1695,user45@example.com,paid,2026-06-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1695,,,,2,Mug,12,0,,
+#1696,user59@example.com,paid,2026-06-25 10:15:00 -0500,1,Mug,12,0,X,50
+#1696,,,,2,Poster,18,0,,
+#1697,user47@example.com,paid,2026-06-25 10:15:00 -0500,1,Mug,12,0,X,50
+#1698,user30@example.com,paid,2026-06-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1699,user56@example.com,paid,2026-06-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1699,,,,2,Mug,12,0,,
+#1700,user45@example.com,paid,2026-06-29 10:15:00 -0500,1,Tee,25,0,X,50
+#1700,,,,2,Mug,12,0,,
+#1701,user51@example.com,paid,2026-07-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1702,user55@example.com,paid,2026-07-01 10:15:00 -0500,1,Mug,12,0,X,50
+#1703,user21@example.com,paid,2026-07-01 10:15:00 -0500,1,Tee,25,0,X,50
+#1703,,,,2,Poster,18,0,,
+#1704,user23@example.com,paid,2026-07-01 10:15:00 -0500,1,Poster,18,0,X,50
+#1704,,,,2,Tee,25,0,,
+#1705,user25@example.com,refunded,2026-07-03 10:15:00 -0500,1,Tee,25,0,X,50
+#1705,,,,2,Mug,12,0,,
+#1706,user24@example.com,refunded,2026-07-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1707,user40@example.com,paid,2026-07-03 10:15:00 -0500,1,Mug,12,0,X,50
+#1707,,,,2,Tee,25,0,,
+#1708,user3@example.com,paid,2026-07-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1708,,,,2,Tee,25,0,,
+#1709,user22@example.com,paid,2026-07-05 10:15:00 -0500,1,Tee,25,0,X,50
+#1710,user17@example.com,refunded,2026-07-05 10:15:00 -0500,1,Mug,12,0,X,50
+#1710,,,,2,Mug,12,0,,
+#1711,user27@example.com,paid,2026-07-05 10:15:00 -0500,1,Poster,18,0,X,50
+#1711,,,,2,Poster,18,0,,
+#1712,user31@example.com,paid,2026-07-07 10:15:00 -0500,1,Mug,12,0,X,50
+#1712,,,,2,Tee,25,0,,
+#1713,user7@example.com,paid,2026-07-07 10:15:00 -0500,1,Tee,25,0,X,50
+#1713,,,,2,Poster,18,0,,
+#1714,user20@example.com,paid,2026-07-09 10:15:00 -0500,1,Mug,12,0,X,50
+#1715,user10@example.com,paid,2026-07-11 10:15:00 -0500,1,Tee,25,0,X,50
+#1715,,,,2,Poster,18,0,,
+#1716,user55@example.com,paid,2026-07-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1716,,,,2,Poster,18,0,,
+#1717,user31@example.com,paid,2026-07-13 10:15:00 -0500,1,Poster,18,0,X,50
+#1718,user3@example.com,paid,2026-07-13 10:15:00 -0500,1,Tee,25,0,X,50
+#1719,user17@example.com,paid,2026-07-13 10:15:00 -0500,1,Mug,12,0,X,50
+#1719,,,,2,Tee,25,0,,
+#1720,user1@example.com,paid,2026-07-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1720,,,,2,Mug,12,0,,
+#1721,user22@example.com,paid,2026-07-15 10:15:00 -0500,1,Mug,12,0,X,50
+#1722,user32@example.com,paid,2026-07-15 10:15:00 -0500,1,Tee,25,0,X,50
+#1723,user14@example.com,paid,2026-07-17 10:15:00 -0500,1,Tee,25,0,X,50
+#1724,user11@example.com,paid,2026-07-17 10:15:00 -0500,1,Mug,12,0,X,50
+#1724,,,,2,Poster,18,0,,
+#1725,user2@example.com,paid,2026-07-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1725,,,,2,Poster,18,0,,
+#1726,user33@example.com,paid,2026-07-19 10:15:00 -0500,1,Mug,12,0,X,50
+#1726,,,,2,Poster,18,0,,
+#1727,user26@example.com,paid,2026-07-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1727,,,,2,Tee,25,0,,
+#1728,user28@example.com,paid,2026-07-21 10:15:00 -0500,1,Poster,18,0,X,50
+#1728,,,,2,Mug,12,0,,
+#1729,user30@example.com,paid,2026-07-21 10:15:00 -0500,1,Mug,12,0,X,50
+#1729,,,,2,Mug,12,0,,
+#1730,user53@example.com,paid,2026-07-21 10:15:00 -0500,1,Tee,25,0,X,50
+#1731,user18@example.com,paid,2026-07-23 10:15:00 -0500,1,Poster,18,0,X,50
+#1731,,,,2,Tee,25,0,,
+#1732,user35@example.com,paid,2026-07-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1732,,,,2,Tee,25,0,,
+#1733,user34@example.com,paid,2026-07-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1734,user54@example.com,paid,2026-07-23 10:15:00 -0500,1,Tee,25,0,X,50
+#1735,user16@example.com,paid,2026-07-25 10:15:00 -0500,1,Tee,25,0,X,50
+#1735,,,,2,Mug,12,0,,
+#1736,user52@example.com,paid,2026-07-25 10:15:00 -0500,1,Mug,12,0,X,50
+#1736,,,,2,Mug,12,0,,
+#1737,user24@example.com,paid,2026-07-27 10:15:00 -0500,1,Mug,12,0,X,50
+#1738,user29@example.com,paid,2026-07-29 10:15:00 -0500,1,Mug,12,0,X,50
+#1738,,,,2,Tee,25,0,,
+#1739,user33@example.com,paid,2026-07-31 10:15:00 -0500,1,Poster,18,0,X,50
+#1739,,,,2,Tee,25,0,,
+#1740,user7@example.com,paid,2026-08-02 10:15:00 -0500,1,Tee,25,0,X,50
+#1740,,,,2,Poster,18,0,,
+#1741,user24@example.com,paid,2026-08-02 10:15:00 -0500,1,Mug,12,0,X,50
+#1741,,,,2,Poster,18,0,,
+#1742,user28@example.com,paid,2026-08-02 10:15:00 -0500,1,Tee,25,0,X,50
+#1742,,,,2,Poster,18,0,,
+#1743,user57@example.com,paid,2026-08-02 10:15:00 -0500,1,Poster,18,0,X,50
+#1743,,,,2,Mug,12,0,,
+#1744,user54@example.com,paid,2026-08-04 10:15:00 -0500,1,Tee,25,0,X,50
+#1745,user24@example.com,refunded,2026-08-04 10:15:00 -0500,1,Poster,18,0,X,50
+#1746,user36@example.com,paid,2026-08-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1747,user34@example.com,paid,2026-08-06 10:15:00 -0500,1,Tee,25,0,X,50
+#1748,user22@example.com,paid,2026-08-06 10:15:00 -0500,1,Mug,12,0,X,50
+#1749,user54@example.com,paid,2026-08-08 10:15:00 -0500,1,Poster,18,0,X,50
+#1750,user27@example.com,paid,2026-08-08 10:15:00 -0500,1,Tee,25,0,X,50
+#1750,,,,2,Poster,18,0,,
+#1751,user1@example.com,paid,2026-08-10 10:15:00 -0500,1,Mug,12,0,X,50
+#1751,,,,2,Mug,12,0,,
+#1752,user28@example.com,refunded,2026-08-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1752,,,,2,Tee,25,0,,
+#1753,user59@example.com,paid,2026-08-12 10:15:00 -0500,1,Tee,25,0,X,50
+#1753,,,,2,Poster,18,0,,
+#1754,user39@example.com,paid,2026-08-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1755,user47@example.com,paid,2026-08-12 10:15:00 -0500,1,Mug,12,0,X,50
+#1755,,,,2,Mug,12,0,,
+#1756,user1@example.com,paid,2026-08-14 10:15:00 -0500,1,Tee,25,0,X,50
+#1757,user25@example.com,paid,2026-08-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1757,,,,2,Poster,18,0,,
+#1758,user24@example.com,paid,2026-08-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1759,user29@example.com,paid,2026-08-16 10:15:00 -0500,1,Mug,12,0,X,50
+#1760,user8@example.com,paid,2026-08-16 10:15:00 -0500,1,Poster,18,0,X,50
+#1761,user18@example.com,paid,2026-08-18 10:15:00 -0500,1,Poster,18,0,X,50
+#1761,,,,2,Poster,18,0,,
+#1762,user20@example.com,paid,2026-08-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1763,user58@example.com,paid,2026-08-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1763,,,,2,Poster,18,0,,
+#1764,user52@example.com,paid,2026-08-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1764,,,,2,Tee,25,0,,
+#1765,user25@example.com,paid,2026-08-20 10:15:00 -0500,1,Poster,18,0,X,50
+#1766,user58@example.com,paid,2026-08-22 10:15:00 -0500,1,Tee,25,0,X,50
+#1766,,,,2,Tee,25,0,,

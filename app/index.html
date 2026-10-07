@@ -1,0 +1,664 @@
+<title>Datalyze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column, summary first (KPIs, insights), then forecast, customers at risk, products/costs. */
+:root{
+  --bg:#f3f6f6; --surface:#ffffff; --ink:#132029; --muted:#5b6b73; --line:#dbe3e5;
+  --accent:#0d6b80; --accent-soft:#e0eff2; --forecast:#c7861a; --forecast-soft:rgba(199,134,26,.16);
+  --good:#1f7a4d; --good-soft:#e2f2e9; --warn:#a86800; --warn-soft:#fbefd8; --bad:#b3372b; --bad-soft:#f8e3e0; --info-soft:#e8edf0;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f171b; --surface:#16232a; --ink:#e4ecee; --muted:#93a4ab; --line:#2a3a42;
+  --accent:#4fb3c8; --accent-soft:#1a3740; --forecast:#e3a945; --forecast-soft:rgba(227,169,69,.18);
+  --good:#5fc48f; --good-soft:#173328; --warn:#e3a945; --warn-soft:#3a2d14; --bad:#ec7a6c; --bad-soft:#3d1f1b; --info-soft:#22323a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f171b; --surface:#16232a; --ink:#e4ecee; --muted:#93a4ab; --line:#2a3a42;
+  --accent:#4fb3c8; --accent-soft:#1a3740; --forecast:#e3a945; --forecast-soft:rgba(227,169,69,.18);
+  --good:#5fc48f; --good-soft:#173328; --warn:#e3a945; --warn-soft:#3a2d14; --bad:#ec7a6c; --bad-soft:#3d1f1b; --info-soft:#22323a; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f-body);padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:20px}
+header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:20px 4px}
+.brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand h1{font:700 1.9rem/1 var(--f-display);margin:0;letter-spacing:-.02em}
+.brand h1 span{color:var(--accent)}
+.brand p{margin:0;color:var(--muted);font-size:.9rem}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,.btn,select{font:500 .875rem var(--f-body);border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 12px;cursor:pointer}
+button:hover,.btn:hover{border-color:var(--accent)}
+button:focus-visible,.btn:focus-within,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn input{position:absolute;opacity:0;width:1px;height:1px}
+.btn{position:relative;display:inline-flex}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.source{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:.85rem;color:var(--muted)}
+.source b{color:var(--ink);font-weight:600}
+.pill{display:inline-block;font:500 .72rem var(--f-mono);letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--info-soft);color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;min-width:0}
+.panel h2{font:600 1.15rem/1.2 var(--f-display);margin:0 0 4px;text-wrap:balance}
+.panel .sub{color:var(--muted);font-size:.85rem;margin:0 0 14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:4px;min-width:0}
+.kpi .lab{font:500 .72rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .val{font:600 1.6rem/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.kpi .delta{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.up{color:var(--good)!important}.down{color:var(--bad)!important}
+.insights{list-style:none;margin:0;padding:0;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.insights li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:10px 12px;border-radius:10px;background:var(--bg)}
+.insights .t{font-weight:600}
+.insights .d{color:var(--muted);font-size:.88rem}
+.chip{font:500 .68rem var(--f-mono);letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.chip.good{background:var(--good-soft);color:var(--good)}.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}.chip.info{background:var(--info-soft);color:var(--muted)}
+.chartbox{position:relative;height:300px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+.fstats{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 12px;font-size:.88rem}
+.fstats div{display:grid}
+.fstats b{font:600 1.15rem var(--f-display);font-variant-numeric:tabular-nums}
+.fstats span{color:var(--muted);font-size:.8rem}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:720px}
+th{font:500 .7rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px;border-bottom:1px solid var(--line)}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;width:70px;display:inline-block;vertical-align:middle;margin-right:6px}
+.bar i{display:block;height:100%}
+.mapping{display:grid;gap:12px}
+.mapgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.mapgrid label{display:grid;gap:4px;font-size:.8rem;color:var(--muted)}
+.note{color:var(--muted);font-size:.85rem;margin:0}
+code{font:.82rem var(--f-mono);background:var(--bg);padding:1px 5px;border-radius:4px}
+.empty{color:var(--muted);padding:24px 0;text-align:center}
+.foot{color:var(--muted);font-size:.8rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>Data<span>lyze</span></h1>
+      <p>Business intelligence for small businesses, without a data analyst.</p>
+    </div>
+    <div class="controls">
+      <label class="btn" for="salesFile">Upload sales CSV<input type="file" id="salesFile" accept=".csv,text/csv"></label>
+      <label class="btn" for="expFile">Upload expenses CSV<input type="file" id="expFile" accept=".csv,text/csv"></label>
+      <button id="sampleBtn" type="button">Load sample business</button>
+      <select id="currency" aria-label="Currency">
+        <option value="USD">$ USD</option><option value="NGN">₦ NGN</option><option value="GBP">£ GBP</option>
+        <option value="EUR">€ EUR</option><option value="KES">KSh KES</option><option value="GHS">₵ GHS</option><option value="ZAR">R ZAR</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="source" id="source"></div>
+
+  <section class="panel mapping" id="mapPanel" hidden>
+    <div>
+      <h2 id="mapTitle">Match your columns</h2>
+      <p class="sub" id="mapSub">We guessed which column is which. Fix anything that looks wrong, then analyze.</p>
+    </div>
+    <div class="mapgrid" id="mapGrid"></div>
+    <div class="controls"><button class="primary" id="mapGo" type="button">Analyze this file</button><button id="mapCancel" type="button">Cancel</button></div>
+  </section>
+
+  <section class="kpis" id="kpis" aria-label="Key numbers"></section>
+
+  <section class="panel">
+    <h2>What your data is telling you</h2>
+    <p class="sub">Generated automatically from your sales, customers and costs.</p>
+    <ul class="insights" id="insights"></ul>
+  </section>
+
+  <section class="panel">
+    <h2>Weekly sales and 12-week forecast</h2>
+    <p class="sub">Shaded area is the likely range (80%). Model: damped-trend exponential smoothing, tuned to your history.</p>
+    <div class="fstats" id="fstats"></div>
+    <div class="chartbox"><canvas id="trendChart" aria-label="Weekly sales with forecast"></canvas></div>
+  </section>
+
+  <section class="panel">
+    <h2>Customers likely to leave</h2>
+    <p class="sub">Risk compares how long since each customer last bought with how often they usually buy, and whether their spending is falling.</p>
+    <div class="tabs" role="group" aria-label="Filter by risk">
+      <button type="button" data-tier="High" aria-pressed="true">High risk</button>
+      <button type="button" data-tier="Medium" aria-pressed="false">Medium risk</button>
+      <button type="button" data-tier="Lapsed" aria-pressed="false">Already lapsed</button>
+      <button type="button" data-tier="All" aria-pressed="false">All customers</button>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Customer</th><th>Risk</th><th class="num">Last bought</th><th class="num">Usually every</th><th class="num">Orders</th><th class="num">Yearly value</th><th>Suggested action</th></tr></thead>
+      <tbody id="churnBody"></tbody>
+    </table></div>
+  </section>
+
+  <div class="two">
+    <section class="panel">
+      <h2>Top products, last 90 days</h2>
+      <p class="sub">Revenue by product.</p>
+      <div class="chartbox"><canvas id="prodChart" aria-label="Top products"></canvas></div>
+    </section>
+    <section class="panel">
+      <h2>Revenue and costs by month</h2>
+      <p class="sub" id="costSub">Upload an expenses CSV to see profit.</p>
+      <div class="chartbox"><canvas id="costChart" aria-label="Revenue and costs by month"></canvas></div>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>File format</h2>
+    <p class="note">Sales CSV: one row per sale or order line, with <code>date</code>, <code>customer</code>, <code>amount</code>, and optionally <code>product</code> and <code>quantity</code>. Expenses CSV: <code>date</code>, <code>category</code>, <code>amount</code>. Shopify orders, Stripe payments, Square sales and QuickBooks "Sales by Customer Detail" exports are recognized automatically. Other POS or spreadsheet files work after the column-matching step. Your files are analyzed in this browser and are not uploaded anywhere.</p>
+  </section>
+  <p class="foot">Datalyze prototype. Sample business data is generated, not real.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const DAY = 86400000;
+const $ = s => document.querySelector(s);
+const state = { sales: [], expenses: [], label: '', expLabel: '', tier: 'High', result: null, pending: null };
+const charts = {};
+const SYMBOL = { USD:'$', NGN:'₦', GBP:'£', EUR:'€', KES:'KSh ', GHS:'₵', ZAR:'R ' };
+let currency = 'USD';
+try { currency = localStorage.getItem('dz-currency') || 'USD'; } catch (e) {}
+$('#currency').value = currency;
+
+/* ---------- formatting ---------- */
+function money(v, compact) {
+  const s = SYMBOL[currency] || '$';
+  const a = Math.abs(v);
+  let n;
+  if (compact && a >= 1e6) n = (a / 1e6).toFixed(a >= 1e7 ? 1 : 2) + 'M';
+  else if (compact && a >= 1e4) n = (a / 1e3).toFixed(a >= 1e5 ? 0 : 1) + 'k';
+  else n = a.toLocaleString('en-US', { maximumFractionDigits: a < 100 ? 2 : 0, minimumFractionDigits: a < 100 && a % 1 ? 2 : 0 });
+  return (v < 0 ? '−' : '') + s + n;
+}
+const pa = (v, d = 0) => Math.abs(v * 100).toFixed(d) + '%';
+const pct = (v, d = 0) => (Math.abs(v * 100).toFixed(d) === (0).toFixed(d) ? '' : v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(d) + '%';
+const fmtDate = d => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const sum = a => a.reduce((x, y) => x + y, 0);
+const median = a => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+
+/* ---------- parsing ---------- */
+function parseAmount(v) {
+  if (typeof v === 'number') return v;
+  if (v == null) return NaN;
+  let s = String(v).trim();
+  const neg = /^\(.*\)$/.test(s) || s.startsWith('-');
+  s = s.replace(/[^0-9.,]/g, '');
+  if (/,\d{1,2}$/.test(s) && !/\.\d/.test(s)) s = s.replace(/\./g, '').replace(',', '.'); // 1.234,56
+  else s = s.replace(/,/g, '');
+  const n = parseFloat(s);
+  return neg ? -n : n;
+}
+function dateOrder(values) {
+  // Decide whether slash dates are day-first: if any first part > 12, it is.
+  for (const v of values) { const m = String(v).match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/); if (m && +m[1] > 12) return 'DMY'; if (m && +m[2] > 12) return 'MDY'; }
+  return currency === 'USD' ? 'MDY' : 'DMY';
+}
+function parseDate(v, order) {
+  if (!v) return NaN;
+  const s = String(v).trim();
+  let m = s.match(/^(\d{4})[\-\/.](\d{1,2})[\-\/.](\d{1,2})/);
+  if (m) return Date.UTC(+m[1], +m[2] - 1, +m[3]);
+  m = s.match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/);
+  if (m) { let y = +m[3]; if (y < 100) y += 2000; const [d, mo] = order === 'MDY' ? [+m[2], +m[1]] : [+m[1], +m[2]]; return Date.UTC(y, mo - 1, d); }
+  const t = Date.parse(s);
+  if (isNaN(t)) return NaN;
+  const d = new Date(t);
+  return Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+}
+
+const FIELDS = {
+  sales: [
+    { key: 'date', label: 'Date', req: true, re: /date|time|day|created|ordered/i },
+    { key: 'customer', label: 'Customer', req: true, re: /customer|client|buyer|email|account|name/i },
+    { key: 'amount', label: 'Amount', req: true, re: /amount|total|revenue|sales|price|value|paid/i },
+    { key: 'product', label: 'Product (optional)', req: false, re: /product|item|sku|description|service/i },
+    { key: 'quantity', label: 'Quantity (optional)', req: false, re: /qty|quantity|units/i },
+  ],
+  expenses: [
+    { key: 'date', label: 'Date', req: true, re: /date|time|day|paid/i },
+    { key: 'category', label: 'Category', req: true, re: /category|type|account|description|expense|vendor/i },
+    { key: 'amount', label: 'Amount', req: true, re: /amount|total|cost|value|paid|debit|spent|money out|net/i },
+  ],
+};
+function guess(fields, headers) {
+  const used = new Set(), map = {};
+  for (const f of fields) {
+    const h = headers.find(h => h && !used.has(h) && f.re.test(h));
+    if (h) { map[f.key] = h; used.add(h); } else map[f.key] = '';
+  }
+  return map;
+}
+
+/* ---------- known exports from UK/US tools, read without column matching ---------- */
+const col = (h, ...names) => { for (const n of names) { const i = h.findIndex(x => String(x || '').trim().toLowerCase() === n.toLowerCase()); if (i >= 0) return i; } return -1; };
+const cell = (r, i) => i >= 0 ? String(r[i] ?? '').trim() : '';
+const PRESETS = [
+  { name: 'Shopify orders export', test: h => col(h, 'Lineitem name') >= 0 && col(h, 'Created at') >= 0,
+    parse(h, rows) {
+      const I = n => col(h, n), first = {};
+      return rows.flatMap(r => {
+        const id = cell(r, I('Name'));
+        // Shopify fills order-level fields only on the first line of each order
+        const o = first[id] ||= { date: cell(r, I('Created at')), customer: cell(r, I('Email')) || cell(r, I('Billing Name')), status: cell(r, I('Financial Status')) };
+        if (/refunded|voided|pending/i.test(o.status)) return [];
+        const qty = parseAmount(cell(r, I('Lineitem quantity'))) || 1;
+        const amount = parseAmount(cell(r, I('Lineitem price'))) * qty - (parseAmount(cell(r, I('Lineitem discount'))) || 0);
+        return [{ date: o.date, customer: o.customer, amount, product: cell(r, I('Lineitem name')), quantity: qty, order: id }];
+      });
+    } },
+  { name: 'Stripe payments export', test: h => col(h, 'Created date (UTC)', 'Created (UTC)') >= 0 && col(h, 'Amount') >= 0,
+    parse(h, rows) {
+      const d = col(h, 'Created date (UTC)', 'Created (UTC)'), a = col(h, 'Amount'), rf = col(h, 'Amount Refunded'), st = col(h, 'Status');
+      const ce = col(h, 'Customer Email'), cd = col(h, 'Customer Description'), ci = col(h, 'Customer ID'), id = col(h, 'id');
+      return rows.filter(r => !/fail|cancel|block/i.test(cell(r, st))).map(r => ({
+        date: cell(r, d), customer: cell(r, ce) || cell(r, cd) || cell(r, ci),
+        amount: parseAmount(cell(r, a)) - (parseAmount(cell(r, rf)) || 0), product: null, quantity: 1, order: cell(r, id) }));
+    } },
+  { name: 'Square sales export', test: h => col(h, 'Net Sales') >= 0 && col(h, 'Transaction ID') >= 0,
+    parse(h, rows) {
+      const it = col(h, 'Item'), q = col(h, 'Qty');
+      return rows.map(r => ({ date: cell(r, col(h, 'Date')), customer: cell(r, col(h, 'Customer Name')) || cell(r, col(h, 'Customer ID')),
+        amount: parseAmount(cell(r, col(h, 'Net Sales'))), product: it >= 0 ? cell(r, it) : null, quantity: q >= 0 ? parseAmount(cell(r, q)) || 1 : 1, order: cell(r, col(h, 'Transaction ID')) }));
+    } },
+  { name: 'QuickBooks sales report', test: h => col(h, 'Transaction Type') >= 0 && col(h, 'Amount') >= 0 && col(h, 'Date') >= 0,
+    parse(h, rows) {
+      const d = col(h, 'Date'), cu = col(h, 'Customer', 'Customer full name', 'Name'), pr = col(h, 'Product/Service', 'Product/Service full name');
+      const q = col(h, 'Qty', 'Quantity'), a = col(h, 'Amount'), t = col(h, 'Transaction Type'), n = col(h, 'Num', 'No.');
+      let group = '';
+      const out = [];
+      for (const r of rows) {
+        const lead = cell(r, 0), filled = r.filter(x => String(x ?? '').trim()).length;
+        // "Sales by Customer Detail" groups rows under a customer heading and closes with "Total for ..."
+        if (/^total/i.test(lead)) continue;
+        if (filled === 1 && lead) { group = lead; continue; }
+        if (/payment|deposit|journal|transfer/i.test(cell(r, t))) continue;
+        out.push({ date: cell(r, d), customer: cell(r, cu) || group, amount: parseAmount(cell(r, a)), product: pr >= 0 ? cell(r, pr) : null, quantity: q >= 0 ? parseAmount(cell(r, q)) || 1 : 1, order: cell(r, n) });
+      }
+      return out;
+    } },
+];
+
+function readTable(data) {
+  // Reports from accounting tools put a title block above the real header row; find it.
+  const looksLikeHeader = r => r.filter(x => String(x ?? '').trim()).length >= 3 && (PRESETS.some(p => p.test(r)) || r.some(x => /date|created/i.test(String(x))));
+  const idx = Math.max(0, data.slice(0, 30).findIndex(looksLikeHeader));
+  const headers = data[idx].map(x => String(x ?? '').trim());
+  return { headers, raw: data.slice(idx + 1).filter(r => r.some(x => String(x ?? '').trim())) };
+}
+function openMapping(kind, file) {
+  Papa.parse(file, { header: false, skipEmptyLines: true, complete: res => {
+    if (!res.data.length) { showSource('That file has no rows we could read. Check that it is a CSV with a header row.'); return; }
+    const { headers, raw } = readTable(res.data);
+    if (!raw.length) { showSource('That file has a header but no data rows.'); return; }
+    if (kind === 'sales') {
+      const preset = PRESETS.find(p => p.test(headers));
+      if (preset && finish('sales', preset.parse(headers, raw), file.name, preset.name)) return;
+    }
+    const rows = raw.map(r => Object.fromEntries(headers.map((h, i) => [h, r[i]])));
+    const map = guess(FIELDS[kind], headers);
+    state.pending = { kind, rows, headers, name: file.name };
+    $('#mapTitle').textContent = `Match your columns: ${file.name}`;
+    $('#mapSub').textContent = `${rows.length.toLocaleString()} rows found. We guessed which column is which. Fix anything that looks wrong, then analyze.`;
+    $('#mapGrid').innerHTML = FIELDS[kind].map(f => `<label for="map-${f.key}">${f.label}<select id="map-${f.key}" data-key="${f.key}">
+      <option value="">${f.req ? 'Choose a column' : 'None'}</option>${headers.filter(Boolean).map(h => `<option${h === map[f.key] ? ' selected' : ''}>${esc(h)}</option>`).join('')}</select></label>`).join('');
+    $('#mapPanel').hidden = false;
+    $('#mapPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }});
+}
+// Turns raw rows ({date, amount, ...} with text values) into clean records and runs the analysis.
+function finish(kind, raw, fileName, source) {
+  const order = dateOrder(raw.slice(0, 500).map(r => r.date));
+  let skipped = 0;
+  const rows = [];
+  for (const r of raw) {
+    const date = parseDate(r.date, order), amount = typeof r.amount === 'number' ? r.amount : parseAmount(r.amount);
+    if (isNaN(date) || isNaN(amount)) { skipped++; continue; }
+    if (kind === 'sales') rows.push({ date, amount, customer: String(r.customer || '').trim(), product: r.product == null ? null : String(r.product).trim() || 'Other', quantity: Number(r.quantity) || 1, order: r.order || null });
+    else rows.push({ date, category: String(r.category || 'Other').trim() || 'Other', amount: Math.abs(amount) });
+  }
+  if (!rows.length) return false;
+  if (kind === 'sales') { state.sales = rows; state.label = fileName; state.source = source || ''; if (state.expLabel === 'Sample expenses') { state.expenses = []; state.expLabel = ''; } }
+  else { state.expenses = rows; state.expLabel = fileName; }
+  state.skipped = skipped;
+  $('#mapPanel').hidden = true; state.pending = null;
+  run();
+  return true;
+}
+$('#mapCancel').onclick = () => { $('#mapPanel').hidden = true; state.pending = null; };
+$('#mapGo').onclick = () => {
+  const p = state.pending; if (!p) return;
+  const map = {}; document.querySelectorAll('#mapGrid select').forEach(s => map[s.dataset.key] = s.value);
+  const missing = FIELDS[p.kind].filter(f => f.req && !map[f.key]).map(f => f.label);
+  if (missing.length) { $('#mapSub').textContent = `Choose a column for: ${missing.join(', ')}.`; return; }
+  const raw = p.rows.map(r => ({ date: r[map.date], amount: r[map.amount], customer: r[map.customer], category: r[map.category],
+    product: map.product ? r[map.product] : null, quantity: map.quantity ? parseAmount(r[map.quantity]) : 1 }));
+  if (!finish(p.kind, raw, p.name)) $('#mapSub').textContent = 'No rows had a readable date and amount with these columns. Try different columns.';
+};
+$('#salesFile').onchange = e => { if (e.target.files[0]) openMapping('sales', e.target.files[0]); e.target.value = ''; };
+$('#expFile').onchange = e => { if (e.target.files[0]) openMapping('expenses', e.target.files[0]); e.target.value = ''; };
+$('#sampleBtn').onclick = () => { loadSample(); run(); };
+$('#currency').onchange = e => { currency = e.target.value; try { localStorage.setItem('dz-currency', currency); } catch (err) {} render(); };
+
+/* ---------- sample business: a small coffee roaster selling online, in-store and wholesale ---------- */
+function rng(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function loadSample() {
+  const r = rng(7), end = Date.UTC(2026, 8, 30), start = Date.UTC(2024, 9, 1), span = end - start;
+  const first = ['Olivia','James','Amelia','Noah','Priya','Liam','Sofia','Ethan','Grace','Marcus','Chloe','Daniel','Aisha','Oliver','Emma','Lucas','Hannah','Mateo','Zara','Ben','Isla','Jamal','Ruby','Tom','Mia','Kofi','Ella','Sam','Nadia','Leo'];
+  const last = ['Smith','Johnson','Patel','Williams','Brown','Garcia','Taylor','Jones','Martin','Okafor','Walker','Hughes','Nguyen','Evans','Clarke','Lopez','Wright','Khan','Murphy','Bennett'];
+  const products = [['House Blend 1kg', 24], ['Single Origin 250g', 12], ['Espresso Roast 1kg', 26], ['Decaf 500g', 14], ['Cold Brew Pack', 18], ['Pour-over Kit', 45], ['Gift Box', 38]];
+  const wholesaleNames = ['Lagoon Café', 'The Reading Room', 'Bluebird Bakery', 'Corner Office Co-work', 'Harbour Hotel', 'Harbor Street Diner', 'Green Fork Deli', 'Studio 9 Gym'];
+  const sales = [], names = new Set();
+  for (let i = 0; i < 260; i++) {
+    const wholesale = i < wholesaleNames.length;
+    let name = wholesale ? wholesaleNames[i] : `${first[Math.floor(r() * first.length)]} ${last[Math.floor(r() * last.length)]}`;
+    if (names.has(name)) { let n = 2; while (names.has(`${name} (${n})`)) n++; name = `${name} (${n})`; }
+    names.add(name);
+    const join = wholesale ? start + r() * span * 0.5 : start + Math.pow(r(), 0.8) * span * 0.95;
+    const interval = wholesale ? 7 + r() * 7 : 12 + r() * 50;
+    const basket = wholesale ? 5 + r() * 6 : 0.6 + r() * 1.6;
+    const oneTime = !wholesale && r() < 0.22;
+    let churn = oneTime ? Infinity : r() < (wholesale ? 0.25 : 0.3) ? join + (0.2 + r() * 0.9) * (end - join) : Infinity;
+    const fav = Math.floor(r() * products.length);
+    let t = join + r() * interval * DAY;
+    if (oneTime) churn = t + DAY;
+    while (t < end && t < churn) {
+      const d = new Date(t), mo = d.getUTCMonth();
+      const season = mo === 11 ? 1.4 : mo === 10 ? 1.15 : mo === 0 ? 0.85 : mo === 6 || mo === 7 ? 0.92 : 1;
+      const growth = 1 + 0.35 * (t - start) / span;
+      // customers who are about to churn buy less in their last months
+      const fade = churn !== Infinity && churn - t < 75 * DAY ? 0.6 : 1;
+      const lines = 1 + (r() < 0.35 ? 1 : 0) + (wholesale && r() < 0.5 ? 1 : 0);
+      for (let k = 0; k < lines; k++) {
+        const p = k === 0 && r() < 0.6 ? products[fav] : products[Math.floor(r() * (mo === 11 ? products.length : products.length - 1))];
+        const qty = Math.max(1, Math.round(basket * (0.6 + r() * 0.8) * fade * (wholesale ? 1 : season)));
+        sales.push({ date: Date.UTC(d.getUTCFullYear(), mo, d.getUTCDate()), customer: name, product: p[0], quantity: qty, amount: Math.round(qty * p[1] * (wholesale ? 0.8 : 1) * growth * 100) / 100 });
+      }
+      t += interval * DAY * (0.55 + r() * 0.9) / (mo === 11 ? 1.3 : 1);
+    }
+  }
+  sales.sort((a, b) => a.date - b.date);
+  const byMonth = {};
+  for (const s of sales) { const k = new Date(s.date).toISOString().slice(0, 7); byMonth[k] = (byMonth[k] || 0) + s.amount; }
+  const expenses = [];
+  Object.keys(byMonth).sort().forEach((k, i) => {
+    const [y, m] = k.split('-').map(Number), rev = byMonth[k];
+    const add = (day, category, amount) => expenses.push({ date: Date.UTC(y, m - 1, day), category, amount: Math.round(amount) });
+    add(1, 'Rent', 1500 + (i >= 12 ? 150 : 0));
+    add(28, 'Wages', 2600 + i * 45);
+    add(10, 'Green coffee beans', rev * (0.3 + r() * 0.06) * (i >= 18 ? 1.12 : 1));
+    add(12, 'Packaging', rev * 0.06);
+    add(15, 'Marketing', 350 + r() * 600 + (m === 11 ? 800 : 0));
+    add(20, 'Utilities', 380 + r() * 140);
+  });
+  state.sales = sales; state.expenses = expenses; state.label = 'Sample: Ember & Bean Coffee Roasters'; state.expLabel = 'Sample expenses'; state.skipped = 0;
+}
+
+/* ---------- forecasting: damped-trend Holt, grid-searched ---------- */
+function holt(y, a, b, phi) {
+  let l = y[0], t = y.length >= 8 ? (sum(y.slice(4, 8)) - sum(y.slice(0, 4))) / 16 : y[1] - y[0], sse = 0;
+  const fitted = [y[0]];
+  for (let i = 1; i < y.length; i++) {
+    const f = l + phi * t; fitted.push(f); sse += (y[i] - f) ** 2;
+    const nl = a * y[i] + (1 - a) * (l + phi * t);
+    t = b * (nl - l) + (1 - b) * phi * t; l = nl;
+  }
+  return { l, t, sse, fitted, a, b, phi };
+}
+function fitHolt(y) {
+  let best = null;
+  for (let a = 0.05; a <= 0.81; a += 0.05) for (const b of [0.01, 0.03, 0.06, 0.1, 0.2]) for (const phi of [0.9, 0.95, 0.98]) {
+    const m = holt(y, a, b, phi); if (!best || m.sse < best.sse) best = m;
+  }
+  return best;
+}
+function project(m, h) { const out = []; let damp = 0; for (let i = 1; i <= h; i++) { damp += m.phi ** i; out.push(Math.max(0, m.l + damp * m.t)); } return out; }
+
+/* ---------- analysis ---------- */
+function analyze(sales, expenses) {
+  const asOf = Math.max(...sales.map(s => s.date)), minD = Math.min(...sales.map(s => s.date));
+  const win = (from, to) => sales.filter(s => s.date > asOf - from * DAY && s.date <= asOf - to * DAY);
+  const rev = rows => sum(rows.map(s => s.amount));
+  const last30 = win(30, 0), prev30 = win(60, 30), last90 = win(90, 0), prev90 = win(180, 90);
+  const orderCount = rows => new Set(rows.map((s, i) => s.order || (s.customer ? s.customer + '|' + s.date : 'walk-in' + i))).size;
+
+  // weekly series, weeks ending on the latest sale date so the last week is complete
+  const nWeeks = Math.floor((asOf - minD) / DAY / 7) + 1;
+  const weeks = new Array(nWeeks).fill(0);
+  for (const s of sales) { const idx = nWeeks - 1 - Math.floor((asOf - s.date) / DAY / 7); if (idx >= 0) weeks[idx] += s.amount; }
+  if (nWeeks > 1 && (asOf - minD) / DAY / 7 < nWeeks - 0.5) weeks.shift(); // drop partial first week
+  const weekEnds = weeks.map((_, i) => asOf - (weeks.length - 1 - i) * 7 * DAY);
+  let forecast = null;
+  if (weeks.length >= 10) {
+    const m = fitHolt(weeks), H = 12, f = project(m, H);
+    const sd = Math.sqrt(m.sse / Math.max(1, weeks.length - 1));
+    const lo = f.map((v, i) => Math.max(0, v - 1.28 * sd * Math.sqrt(i + 1))), hi = f.map((v, i) => v + 1.28 * sd * Math.sqrt(i + 1));
+    let backtest = null;
+    if (weeks.length >= 26) {
+      const train = weeks.slice(0, -8), bt = project(fitHolt(train), 8), act = sum(weeks.slice(-8));
+      backtest = { predicted: sum(bt), actual: act, err: Math.abs(sum(bt) - act) / act };
+    }
+    forecast = { values: f, lo, hi, dates: f.map((_, i) => asOf + (i + 1) * 7 * DAY), next4: sum(f.slice(0, 4)), last4: sum(weeks.slice(-4)), next12: sum(f), backtest };
+  }
+
+  // customers
+  const custMap = new Map();
+  for (const s of sales) {
+    if (!s.customer) continue; // walk-in or guest sales count toward revenue, not customer behaviour
+    let c = custMap.get(s.customer); if (!c) custMap.set(s.customer, c = { name: s.customer, total: 0, days: new Map() });
+    c.total += s.amount; c.days.set(s.date, (c.days.get(s.date) || 0) + s.amount);
+  }
+  const allGaps = [];
+  const custs = [...custMap.values()].map(c => {
+    const days = [...c.days.keys()].sort((a, b) => a - b), amounts = days.map(d => c.days.get(d));
+    const gaps = days.slice(1).map((d, i) => (d - days[i]) / DAY);
+    allGaps.push(...gaps);
+    return { ...c, days, amounts, gaps, first: days[0], last: days[days.length - 1], orders: days.length };
+  });
+  const globalGap = Math.max(7, median(allGaps) || 30);
+  for (const c of custs) {
+    c.expected = c.orders >= 3 ? Math.max(7, median(c.gaps)) : c.orders === 2 ? Math.max(7, (c.gaps[0] + globalGap) / 2) : globalGap * 1.5;
+    c.recency = (asOf - c.last) / DAY;
+    const ratio = c.recency / c.expected;
+    const h = Math.floor(c.orders / 2);
+    c.trend = c.orders >= 4 ? (sum(c.amounts.slice(-h)) / h) / (sum(c.amounts.slice(0, h)) / h) : 1;
+    let p = 1 / (1 + Math.exp(-2.2 * (ratio - 1.8)));
+    if (c.trend < 0.75) p = Math.min(0.99, p + 0.15);
+    c.risk = p;
+    c.tenure = Math.max(90, (asOf - c.first) / DAY);
+    c.yearly = c.total * 365 / c.tenure;
+    c.tier = ratio > 5 && c.recency > 120 ? 'Lapsed' : p >= 0.65 ? 'High' : p >= 0.35 ? 'Medium' : 'Low';
+    c.action = c.tier === 'Lapsed' ? 'Win-back offer, or remove from active list'
+      : c.tier === 'Low' ? 'No action needed'
+      : c.yearly > 1500 ? 'Call personally this week'
+      : c.orders === 1 ? 'Send a second-purchase discount'
+      : c.trend < 0.75 ? 'Ask for feedback: spending is dropping'
+      : 'Send a "we miss you" offer';
+  }
+  const active = custs.filter(c => c.recency <= 90);
+  const atRisk = custs.filter(c => c.tier === 'High' || c.tier === 'Medium');
+  const revAtRisk = sum(atRisk.map(c => c.yearly * c.risk));
+
+  // products
+  let products = null;
+  if (sales.some(s => s.product)) {
+    const agg = (rows) => { const m = new Map(); rows.forEach(s => m.set(s.product || 'Other', (m.get(s.product || 'Other') || 0) + s.amount)); return m; };
+    const now = agg(last90), before = agg(prev90);
+    products = [...now.entries()].map(([name, v]) => ({ name, v, prev: before.get(name) || 0 })).sort((a, b) => b.v - a.v);
+  }
+
+  // months
+  const mkey = d => new Date(d).toISOString().slice(0, 7);
+  const months = {};
+  for (const s of sales) (months[mkey(s.date)] ||= { rev: 0, exp: 0, cats: {} }).rev += s.amount;
+  for (const e of expenses) { const m = (months[mkey(e.date)] ||= { rev: 0, exp: 0, cats: {} }); m.exp += e.amount; m.cats[e.category] = (m.cats[e.category] || 0) + e.amount; }
+  const lastFull = mkey(asOf + DAY) === mkey(asOf) ? null : mkey(asOf); // is asOf the last day of its month?
+  const monthKeys = Object.keys(months).sort().filter(k => k <= mkey(asOf)).filter(k => lastFull || k !== mkey(asOf));
+
+  const exp90 = sum(expenses.filter(e => e.date > asOf - 90 * DAY && e.date <= asOf).map(e => e.amount));
+  const named = sum(custs.map(c => c.total)), anonShare = 1 - named / Math.max(1, sum(sales.map(s => s.amount)));
+  const sorted = [...custs].sort((a, b) => b.total - a.total), top10 = sorted.slice(0, Math.max(1, Math.round(custs.length * 0.1)));
+  const weekday = new Array(7).fill(0); last90.forEach(s => weekday[new Date(s.date).getUTCDay()] += s.amount);
+
+  return {
+    asOf, minD, weeks, weekEnds, forecast, custs, active, atRisk, revAtRisk, products, months, monthKeys, globalGap,
+    rev30: rev(last30), revPrev30: rev(prev30), rev90: rev(last90), revPrev90: rev(prev90),
+    aov90: rev(last90) / Math.max(1, orderCount(last90)), aovPrev90: rev(prev90) / Math.max(1, orderCount(prev90)),
+    activePrev: custs.filter(c => c.days.some(d => d <= asOf - 90 * DAY && d > asOf - 180 * DAY)).length,
+    exp90, hasExp: expenses.length > 0, top10Share: sum(top10.map(c => c.total)) / Math.max(1, named), anonShare, top10n: top10.length,
+    repeatRate: custs.length ? custs.filter(c => c.orders > 1).length / custs.length : null, weekday,
+  };
+}
+
+function buildInsights(R) {
+  const out = [], add = (tone, t, d) => out.push({ tone, t, d });
+  const ch30 = R.revPrev30 ? R.rev30 / R.revPrev30 - 1 : 0;
+  if (R.revPrev30) add(ch30 >= 0.03 ? 'good' : ch30 <= -0.05 ? 'bad' : 'info', `Sales ${ch30 >= 0 ? 'up' : 'down'} ${pa(ch30)} in the last 30 days`, `${money(R.rev30)} vs ${money(R.revPrev30)} in the 30 days before.`);
+  if (R.forecast) {
+    const f = R.forecast, c = f.next4 / f.last4 - 1;
+    add(c >= 0.02 ? 'good' : c <= -0.05 ? 'warn' : 'info', `Next 4 weeks forecast: ${money(f.next4, true)}`, `${Math.abs(c) < 0.01 ? 'In line with' : 'About ' + pa(c) + (c > 0 ? ' above' : ' below')} the last 4 weeks. Plan stock and staffing to match.`);
+  }
+  if (R.atRisk.length) {
+    const top = [...R.atRisk].sort((a, b) => b.yearly * b.risk - a.yearly * a.risk).slice(0, 3).map(c => c.name);
+    add('bad', `${R.atRisk.length} customers are at risk of leaving`, `They are worth about ${money(R.revAtRisk, true)} a year in expected sales. Start with ${top.join(', ')}.`);
+  }
+  if (R.products && R.products.length > 1) {
+    const total = sum(R.products.map(p => p.v)), p0 = R.products[0];
+    add('info', `${p0.name} brings in ${pa(p0.v / total)} of revenue`, `Your best seller over the last 90 days, at ${money(p0.v)}.`);
+    const growers = R.products.filter(p => p.prev > total * 0.02).map(p => ({ ...p, g: p.v / p.prev - 1 })).sort((a, b) => b.g - a.g);
+    if (growers.length && growers[0].g > 0.1) add('good', `${growers[0].name} is your fastest-growing product`, `Up ${pa(growers[0].g)} compared with the previous 90 days.`);
+    const fallers = growers.filter(p => p.g < -0.15);
+    if (fallers.length) { const f = fallers[fallers.length - 1]; add('warn', `${f.name} sales fell ${pa(-f.g)}`, `Compared with the previous 90 days. Check pricing, stock-outs or competition.`); }
+  }
+  if (R.top10Share > 0.35) add('warn', `Your top ${R.top10n} customers bring in ${pa(R.top10Share)} of sales`, `Losing even one of them would hurt. Keep them close with regular check-ins.`);
+  if (R.repeatRate != null) add(R.repeatRate >= 0.5 ? 'good' : 'warn', `${pa(R.repeatRate)} of customers have bought more than once`, R.repeatRate >= 0.5 ? 'Good loyalty. A referral reward could turn regulars into new customers.' : 'Most buyers do not come back. A follow-up message after the first order usually helps.');
+  if (R.aovPrev90) { const c = R.aov90 / R.aovPrev90 - 1; if (Math.abs(c) > 0.05) add(c > 0 ? 'good' : 'warn', `Average order value ${c > 0 ? 'rose' : 'fell'} ${pa(c)}`, `${money(R.aov90)} per order over the last 90 days, vs ${money(R.aovPrev90)} before.`); }
+  if (R.anonShare > 0.2) add('info', `${pa(R.anonShare)} of sales have no customer attached`, 'These walk-in or guest sales count toward revenue and forecasts, but not customer risk. Capturing an email at checkout makes churn tracking more complete.');
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const wd = R.weekday, best = wd.indexOf(Math.max(...wd)), worst = wd.indexOf(Math.min(...wd));
+  if (sum(wd) > 0 && wd[worst] > 0) add('info', `${days[best]} is your busiest day`, `It brings ${(wd[best] / wd[worst]).toFixed(1)}× the sales of ${days[worst]}, your quietest day. Promotions work best on quiet days.`);
+  if (R.hasExp && R.monthKeys.length >= 2) {
+    const k = R.monthKeys.slice(-3), rv = sum(k.map(x => R.months[x].rev)), ex = sum(k.map(x => R.months[x].exp)), margin = (rv - ex) / rv;
+    add(margin > 0.1 ? 'good' : margin > 0 ? 'warn' : 'bad', `Profit margin ${(margin < 0 ? '−' : '') + pa(margin)} over the last 3 months`, `${money(rv - ex)} left after ${money(ex)} of costs.`);
+    const cats = {}; k.forEach(x => Object.entries(R.months[x].cats).forEach(([c, v]) => cats[c] = (cats[c] || 0) + v));
+    const pk = R.monthKeys.slice(-6, -3), pcats = {}; pk.forEach(x => Object.entries(R.months[x].cats).forEach(([c, v]) => pcats[c] = (pcats[c] || 0) + v));
+    const prevRev = sum(pk.map(x => R.months[x].rev));
+    if (pk.length === 3 && prevRev) {
+      const rising = Object.keys(cats).filter(c => pcats[c] > ex * 0.05).map(c => ({ c, g: (cats[c] / rv) / (pcats[c] / prevRev) - 1 })).sort((a, b) => b.g - a.g)[0];
+      if (rising && rising.g > 0.06) add('warn', `${rising.c} costs are growing faster than sales`, `As a share of revenue they are up ${pct(rising.g)} on the previous 3 months.`);
+    }
+  }
+  const order = { bad: 0, warn: 1, good: 2, info: 3 };
+  return out.sort((a, b) => order[a.tone] - order[b.tone]);
+}
+
+/* ---------- rendering ---------- */
+const tok = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function kpi(label, value, delta, good) {
+  const cls = delta == null ? '' : good ? 'up' : 'down';
+  return `<div class="kpi"><span class="lab">${label}</span><span class="val">${value}</span><span class="delta ${cls}">${delta ?? '&nbsp;'}</span></div>`;
+}
+function showSource(msg) {
+  const R = state.result;
+  $('#source').innerHTML = msg ? `<span>${esc(msg)}</span>` : R ? `<span class="pill">Data</span><span><b>${esc(state.label)}</b>${state.source ? ` <span class="pill">${esc(state.source)}</span>` : ''}${state.expLabel ? ' + ' + esc(state.expLabel) : ''}</span>
+    <span>${state.sales.length.toLocaleString()} sales rows, ${R.custs.length.toLocaleString()} customers, ${fmtDate(R.minD)} to ${fmtDate(R.asOf)}</span>${state.skipped ? `<span>${state.skipped} rows skipped (unreadable date or amount)</span>` : ''}` : '';
+}
+function run() {
+  if (!state.sales.length) return;
+  state.result = analyze(state.sales, state.expenses);
+  render();
+}
+function render() {
+  const R = state.result; if (!R) return;
+  showSource();
+  const d = (a, b) => b ? `${pct(a / b - 1)} vs previous period` : null;
+  let k = kpi('Sales, last 30 days', money(R.rev30, true), d(R.rev30, R.revPrev30), R.rev30 >= R.revPrev30)
+    + kpi('Active customers (90 days)', R.active.length.toLocaleString(), R.activePrev ? `${pct(R.active.length / R.activePrev - 1)} vs previous 90 days` : null, R.active.length >= R.activePrev)
+    + kpi('Average order', money(R.aov90), d(R.aov90, R.aovPrev90), R.aov90 >= R.aovPrev90);
+  if (R.hasExp) { const m = (R.rev90 - R.exp90) / R.rev90; k += kpi('Profit margin, 90 days', (m < 0 ? '−' : '') + pa(m, 1), `${money(R.rev90 - R.exp90, true)} profit`, m > 0); }
+  else k += kpi('Sales at risk from churn', money(R.revAtRisk, true), `${R.atRisk.length} customers, per year`, false);
+  $('#kpis').innerHTML = k;
+  $('#insights').innerHTML = buildInsights(R).map(i => `<li><span class="chip ${i.tone}">${{ good: 'Good', warn: 'Watch', bad: 'Act', info: 'Note' }[i.tone]}</span><div><div class="t">${esc(i.t)}</div><div class="d">${esc(i.d)}</div></div></li>`).join('');
+  const f = R.forecast;
+  $('#fstats').innerHTML = f ? `<div><b>${money(f.next4, true)}</b><span>Next 4 weeks</span></div><div><b>${money(f.next12, true)}</b><span>Next 12 weeks</span></div>`
+    + (f.backtest ? `<div><b>${(100 - f.backtest.err * 100).toFixed(0)}%</b><span>Accuracy on the last 8 weeks (tested)</span></div>` : '')
+    : `<div><span>Forecast needs at least 10 weeks of sales history.</span></div>`;
+  renderTable(); drawCharts();
+}
+function renderTable() {
+  const R = state.result; if (!R) return;
+  const list = R.custs.filter(c => state.tier === 'All' || c.tier === state.tier).sort((a, b) => state.tier === 'All' ? b.risk - a.risk : b.yearly * b.risk - a.yearly * a.risk);
+  const tierColor = { High: '--bad', Medium: '--warn', Low: '--good', Lapsed: '--muted' };
+  $('#churnBody').innerHTML = list.length ? list.slice(0, 40).map(c => `<tr>
+    <td>${esc(c.name)}</td>
+    <td><span class="bar"><i style="width:${Math.round(c.risk * 100)}%;background:var(${tierColor[c.tier]})"></i></span>${c.tier} · ${Math.round(c.risk * 100)}%</td>
+    <td class="num">${Math.round(c.recency)} days ago</td>
+    <td class="num">${c.orders > 1 ? Math.round(c.expected) + ' days' : 'One order'}</td>
+    <td class="num">${c.orders}</td>
+    <td class="num">${money(c.yearly)}</td>
+    <td>${c.action}</td></tr>`).join('') + (list.length > 40 ? `<tr><td colspan="7" class="note">Showing the 40 most valuable of ${list.length}.</td></tr>` : '')
+    : `<tr><td colspan="7" class="empty">No customers in this group.</td></tr>`;
+}
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => {
+  state.tier = b.dataset.tier;
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  renderTable();
+});
+
+function drawCharts() {
+  const R = state.result; if (!R || !window.Chart) return;
+  const ink = tok('--ink'), muted = tok('--muted'), line = tok('--line'), accent = tok('--accent'), fc = tok('--forecast'), fcs = tok('--forecast-soft');
+  Chart.defaults.font.family = tok('--f-body'); Chart.defaults.color = muted;
+  Object.values(charts).forEach(c => c.destroy());
+  const short = t => new Date(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  const showWeeks = Math.min(R.weeks.length, 64);
+  const actual = R.weeks.slice(-showWeeks), actualDates = R.weekEnds.slice(-showWeeks);
+  const f = R.forecast;
+  const labels = actualDates.concat(f ? f.dates : []).map(short);
+  const pad = n => new Array(n).fill(null);
+  const ds = [{ label: 'Weekly sales', data: actual.concat(f ? pad(12) : []), borderColor: accent, backgroundColor: accent, borderWidth: 2, pointRadius: 0, tension: 0.25 }];
+  if (f) {
+    const join = actual.length - 1, last = actual[join];
+    ds.push({ label: 'Range high', data: pad(join).concat([last], f.hi), borderColor: 'transparent', pointRadius: 0, fill: false });
+    ds.push({ label: 'Likely range', data: pad(join).concat([last], f.lo), borderColor: 'transparent', backgroundColor: fcs, pointRadius: 0, fill: '-1' });
+    ds.push({ label: 'Forecast', data: pad(join).concat([last], f.values), borderColor: fc, backgroundColor: fc, borderDash: [6, 4], borderWidth: 2, pointRadius: 0 });
+  }
+  const scales = { x: { grid: { display: false }, ticks: { maxTicksLimit: 8, color: muted } }, y: { grid: { color: line }, border: { display: false }, ticks: { color: muted, callback: v => money(v, true) } } };
+  charts.trend = new Chart($('#trendChart'), { type: 'line', data: { labels, datasets: ds }, options: {
+    responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, scales,
+    plugins: { legend: { labels: { color: ink, filter: i => i.text !== 'Range high', boxWidth: 12 } }, tooltip: { filter: i => i.dataset.label !== 'Range high' && i.raw != null, callbacks: { label: c => `${c.dataset.label}: ${money(c.raw)}` } } } } });
+
+  if (R.products) {
+    const top = R.products.slice(0, 8);
+    charts.prod = new Chart($('#prodChart'), { type: 'bar', data: { labels: top.map(p => p.name), datasets: [{ label: 'Revenue', data: top.map(p => p.v), backgroundColor: accent, borderRadius: 4 }] },
+      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => money(c.raw) } } },
+        scales: { x: { grid: { color: line }, border: { display: false }, ticks: { color: muted, callback: v => money(v, true) } }, y: { grid: { display: false }, ticks: { color: ink } } } } });
+  } else {
+    const ctx = $('#prodChart').getContext('2d'); ctx.clearRect(0, 0, 9999, 9999);
+  }
+  const mk = R.monthKeys.slice(-18);
+  const mlabel = k => { const [y, m] = k.split('-'); return new Date(Date.UTC(+y, +m - 1, 1)).toLocaleDateString('en-GB', { month: 'short', year: '2-digit', timeZone: 'UTC' }); };
+  const cds = [{ type: 'bar', label: 'Revenue', data: mk.map(k => R.months[k].rev), backgroundColor: accent, borderRadius: 3, order: 2 }];
+  if (R.hasExp) {
+    cds.push({ type: 'bar', label: 'Costs', data: mk.map(k => R.months[k].exp), backgroundColor: line, borderRadius: 3, order: 2 });
+    cds.push({ type: 'line', label: 'Profit', data: mk.map(k => R.months[k].rev - R.months[k].exp), borderColor: fc, backgroundColor: fc, pointRadius: 2, borderWidth: 2, order: 1 });
+  }
+  $('#costSub').textContent = R.hasExp ? 'Monthly revenue, costs, and what is left as profit.' : 'Upload an expenses CSV to see costs and profit.';
+  charts.cost = new Chart($('#costChart'), { type: 'bar', data: { labels: mk.map(mlabel), datasets: cds }, options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, scales,
+    plugins: { legend: { labels: { color: ink, boxWidth: 12 } }, tooltip: { callbacks: { label: c => `${c.dataset.label}: ${money(c.raw)}` } } } } });
+}
+const redraw = () => state.result && drawCharts();
+try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redraw); } catch (e) {}
+new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+loadSample(); run();
+</script>
