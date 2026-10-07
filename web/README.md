@@ -18,11 +18,11 @@ Without Supabase keys the app runs in demo-only mode: `/demo` shows the sample b
 1. Create a project at [supabase.com](https://supabase.com) (the free tier is enough to start).
 2. In the SQL editor, run [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql). It creates the tables and the row-level security policies that keep each owner's data private.
 3. Under Authentication > URL Configuration, set the Site URL to your app's address and add `https://<your-domain>/auth/callback` to the redirect URLs.
-4. Copy the project URL and anon key from Project Settings > API into `.env.local` (and into your host's environment variables when deploying).
+4. Copy the project URL and publishable key (or, on older projects, the anon key) from Project Settings > API into `.env.local`, and into your host's environment variables when deploying.
 
 ## Deploy
 
-Import the repository into [Vercel](https://vercel.com), set the root directory to `web`, and add the two `NEXT_PUBLIC_SUPABASE_*` variables.
+Import the repository into [Vercel](https://vercel.com), set the root directory to `web`, and add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
 
 ## Checks
 
