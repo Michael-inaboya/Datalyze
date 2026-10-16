@@ -1,0 +1,64 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", "scripts/**", ".github/workflows/deploy.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  SUPABASE_REF: mvilhchiyovywvicozaf
+  NEXT_PUBLIC_SUPABASE_URL: https://mvilhchiyovywvicozaf.supabase.co
+  # Publishable keys are safe to ship to browsers; row-level security protects the data.
+  NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_sB0swjzBUYm96zb_HGIEyw_RR-zpghO
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_PROJECT: ${{ vars.VERCEL_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tokens
+        run: |
+          [ -n "$SUPABASE_ACCESS_TOKEN" ] || echo "::notice::SUPABASE_ACCESS_TOKEN secret not set, skipping database setup."
+          [ -n "$VERCEL_TOKEN" ] || echo "::notice::VERCEL_TOKEN secret not set, skipping deploy."
+
+      - name: Update database
+        if: env.SUPABASE_ACCESS_TOKEN != ''
+        run: scripts/supabase-migrate.sh
+
+      - uses: actions/setup-node@v4
+        if: env.VERCEL_TOKEN != ''
+        with:
+          node-version: 22
+
+      - name: Deploy to Vercel
+        id: vercel
+        if: env.VERCEL_TOKEN != ''
+        run: scripts/vercel-deploy.sh
+
+      - name: Point sign-in emails at the site
+        if: env.SUPABASE_ACCESS_TOKEN != '' && steps.vercel.outputs.site_url != ''
+        env:
+          SITE_URL: ${{ steps.vercel.outputs.site_url }}
+        run: scripts/supabase-auth-urls.sh
+
+      - name: Check the live site
+        if: steps.vercel.outputs.site_url != ''
+        env:
+          SITE_URL: ${{ steps.vercel.outputs.site_url }}
+        run: |
+          for path in / /login /demo; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --retry 5 --retry-delay 5 --retry-all-errors "$SITE_URL$path")
+            echo "$path -> $code"
+            [ "$code" = 200 ] || { echo "::error::$SITE_URL$path returned $code"; exit 1; }
+          done
+          echo "### Live at $SITE_URL" >>"$GITHUB_STEP_SUMMARY"
