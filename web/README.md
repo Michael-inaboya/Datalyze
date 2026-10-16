@@ -24,6 +24,13 @@ Without Supabase keys the app runs in demo-only mode: `/demo` shows the sample b
 
 Import the repository into [Vercel](https://vercel.com), set the root directory to `web`, and add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
 
+The [Deploy workflow](../.github/workflows/deploy.yml) does this on every push to `main` (or from the Actions tab) once two repository secrets exist:
+
+- `SUPABASE_ACCESS_TOKEN` (supabase.com/dashboard/account/tokens): applies new migrations and sets the sign-in redirect URLs.
+- `VERCEL_TOKEN` (vercel.com/account/tokens): sets the root directory and env vars on the Vercel project, deploys, and checks the live pages.
+
+Set the `VERCEL_PROJECT` repository variable if the Vercel project isn't called `datalyze`.
+
 ## Checks
 
 ```bash
