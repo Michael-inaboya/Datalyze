@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Fixes the Vercel project settings, builds web/ and deploys it to production.
 # Needs VERCEL_TOKEN, NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.
-# Optional VERCEL_PROJECT (name, default "datalyze"). Writes site_url to $GITHUB_OUTPUT.
+# Optional VERCEL_PROJECT (name, default "datalyze-euqy"). Writes site_url to $GITHUB_OUTPUT.
 set -euo pipefail
 : "${VERCEL_TOKEN:?}" "${NEXT_PUBLIC_SUPABASE_URL:?}" "${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:?}"
-PROJECT="${VERCEL_PROJECT:-datalyze}"
+PROJECT="${VERCEL_PROJECT:-datalyze-euqy}"
 V="https://api.vercel.com"
 AUTH=(-H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json")
 

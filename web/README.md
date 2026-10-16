@@ -29,7 +29,7 @@ The [Deploy workflow](../.github/workflows/deploy.yml) does this on every push t
 - `SUPABASE_ACCESS_TOKEN` (supabase.com/dashboard/account/tokens): applies new migrations and sets the sign-in redirect URLs.
 - `VERCEL_TOKEN` (vercel.com/account/tokens): sets the root directory and env vars on the Vercel project, deploys, and checks the live pages.
 
-Set the `VERCEL_PROJECT` repository variable if the Vercel project isn't called `datalyze`.
+Set the `VERCEL_PROJECT` repository variable if the Vercel project isn't `datalyze-euqy`.
 
 ## Checks
 
