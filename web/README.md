@@ -37,6 +37,12 @@ Owners connect Stripe on the Data screen with a read-only restricted key (Charge
 
 For local development, set `DATALYZE_SECRET_KEY` in `.env.local` (`openssl rand -base64 32`).
 
+## AI analyst
+
+The "Ask Datalyze" panel on the dashboard answers owners' questions with Claude (`claude-opus-5-5`, via `@anthropic-ai/sdk`). `POST /api/analyst` loads the business's data as the signed-in owner (so row-level security applies), sends Claude a JSON summary built with the same `analyze()` the dashboard uses (`src/lib/analystData.ts`), and gives it a `breakdown` tool for finer questions such as one customer's history or a product by month. Replies stream back as plain text. Server-side refusal fallbacks are on (`fallbacks: "default"`). The demo answers from the sample business and is limited to a few questions an hour per visitor.
+
+Add the key as the `ANTHROPIC_API_KEY` GitHub secret; the deploy workflow copies it to Vercel as a sensitive variable. Locally, put it in `.env.local`.
+
 ## Checks
 
 ```bash

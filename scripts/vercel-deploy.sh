@@ -46,6 +46,19 @@ if ! grep -qx DATALYZE_SECRET_KEY <<<"$envs"; then
   echo "Created DATALYZE_SECRET_KEY"
 fi
 
+# The AI analyst's Claude API key, copied from the GitHub secret when one is set.
+if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+  body=$(jq -n --arg v "$ANTHROPIC_API_KEY" '{key: "ANTHROPIC_API_KEY", value: $v, type: "sensitive", target: ["production", "preview"]}')
+  sep=${Q:+&}; sep=${sep:-?}
+  if curl -fsS -o /dev/null -X POST "${AUTH[@]}" "$V/v10/projects/$PID/env$Q${sep}upsert=true" -d "$body"; then
+    echo "Set ANTHROPIC_API_KEY"
+  else
+    echo "::warning::Could not set ANTHROPIC_API_KEY on the Vercel project. Set it in Vercel > Settings > Environment Variables."
+  fi
+elif ! grep -qx ANTHROPIC_API_KEY <<<"$envs"; then
+  echo "::notice::ANTHROPIC_API_KEY secret not set, so the AI analyst stays switched off."
+fi
+
 # Have Vercel build from GitHub itself; building with the CLI from a subfolder breaks next/font.
 body=$(jq -n --arg name "$(jq -r .name <<<"$info")" --arg pid "$PID" --arg repo "${GITHUB_REPOSITORY:-Michael-inaboya/Datalyze}" \
   '{name: $name, project: $pid, target: "production",

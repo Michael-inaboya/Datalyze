@@ -63,6 +63,14 @@ button:focus-visible, .btn:focus-visible, .btn:focus-within, select:focus-visibl
 .ok { color: var(--good); font-size: 0.88rem; margin: 0; }
 code { font: 0.82rem var(--f-mono); background: var(--bg); padding: 1px 5px; border-radius: 4px; }
 
+.ask .chat { display: grid; gap: 10px; margin-bottom: 12px; max-height: 520px; overflow-y: auto; }
+.ask .q { justify-self: end; max-width: 80%; background: var(--accent-soft); color: var(--ink); padding: 8px 12px; border-radius: 12px 12px 2px 12px; }
+.ask .a { max-width: 92%; background: var(--bg); padding: 10px 14px; border-radius: 12px 12px 12px 2px; }
+.ask .a p { margin: 0 0 8px; } .ask .a p:last-child, .ask .a ul:last-child { margin-bottom: 0; }
+.ask .a ul { margin: 0 0 8px; padding-left: 20px; }
+.askform { display: flex; gap: 8px; }
+.askform input { flex: 1; min-width: 0; }
+
 .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
 .tabs button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 
