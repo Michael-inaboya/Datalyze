@@ -52,5 +52,13 @@ do $$ begin
   assert (select count(*) from expenses) = 1, 'expenses not tied to the import stay';
 end $$;
 
+insert into connections (business_id, provider, secret) select id, 'stripe', 'ciphertext' from businesses;
+
+set request.jwt.claim.sub = '22222222-2222-2222-2222-222222222222';
+do $$ begin
+  assert (select count(*) from connections) = 0, 'other users see no connections';
+end $$;
+select pg_temp.expect_denied(format('insert into connections (business_id, provider, secret) values (%L, ''stripe'', ''x'')', :'alice_biz'));
+
 reset role;
 select 'RLS checks passed' as result;

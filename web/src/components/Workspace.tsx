@@ -4,16 +4,20 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
 import { fmtDate } from "@/lib/format";
-import { demoStore, supabaseStore, type Business, type ImportRecord, type Store } from "@/lib/store";
+import { demoStore, supabaseStore, type Business, type Connection, type ImportRecord, type Store } from "@/lib/store";
 import { supabase } from "@/lib/supabase/client";
 import { supabaseConfigured } from "@/lib/supabase/config";
 import { CURRENCIES, type Currency, type Expense, type Sale } from "@/lib/types";
 import { Dashboard } from "./Dashboard";
 import { DataPanel } from "./DataPanel";
 import { Logo } from "./Logo";
+import { StripeConnect, syncSummary } from "./StripeConnect";
 
 type View = "dashboard" | "data";
 type Data = { sales: Sale[]; expenses: Expense[]; imports: ImportRecord[] };
+
+// Payments sync on open once the last sync is older than this.
+const SYNC_EVERY = 6 * 3600 * 1000;
 
 export function Workspace({ mode }: { mode: "demo" | "live" }) {
   const router = useRouter();
@@ -23,6 +27,8 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
   const [data, setData] = useState<Data | null>(null);
   const [view, setView] = useState<View>("dashboard");
   const [error, setError] = useState("");
+  const [stripe, setStripe] = useState<Connection | null>(null);
+  const [syncing, setSyncing] = useState(false);
   const biz = businesses?.find((b) => b.id === bizId) ?? null;
 
   useEffect(() => {
@@ -38,24 +44,41 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
   }, [store]);
 
   const reload = useCallback(async (id: string) => {
-    const [sales, expenses, imports] = await Promise.all([store.loadSales(id), store.loadExpenses(id), store.listImports(id)]);
+    const [sales, expenses, imports, conn] = await Promise.all([store.loadSales(id), store.loadExpenses(id), store.listImports(id), store.getStripe(id)]);
     setData({ sales, expenses, imports });
+    setStripe(conn);
   }, [store]);
+
+  const syncStripe = useCallback(async (id: string): Promise<string> => {
+    setSyncing(true);
+    try {
+      const res = await fetch("/api/stripe/sync", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ businessId: id }) });
+      const body = await res.json();
+      await reload(id);
+      if (!res.ok) throw new Error(body.error ?? "Sync failed.");
+      return syncSummary(body);
+    } finally {
+      setSyncing(false);
+    }
+  }, [reload]);
 
   useEffect(() => {
     if (!bizId) return;
     try { localStorage.setItem("dz-business", bizId); } catch {}
     let cancelled = false;
-    Promise.all([store.loadSales(bizId), store.loadExpenses(bizId), store.listImports(bizId)]).then(
-      ([sales, expenses, imports]) => {
+    Promise.all([store.loadSales(bizId), store.loadExpenses(bizId), store.listImports(bizId), store.getStripe(bizId)]).then(
+      ([sales, expenses, imports, conn]) => {
         if (cancelled) return;
         setData({ sales, expenses, imports });
-        if (!sales.length) setView("data");
+        setStripe(conn);
+        if (!sales.length && !conn) setView("data");
+        const last = conn?.last_synced_at ? Date.parse(conn.last_synced_at) : 0;
+        if (conn && Date.now() - last > SYNC_EVERY) syncStripe(bizId).catch(() => {}); // the error shows on the Stripe card
       },
       (e: Error) => !cancelled && setError(e.message),
     );
     return () => { cancelled = true; };
-  }, [bizId, store]);
+  }, [bizId, store, syncStripe]);
 
   async function signOut() {
     await supabase().auth.signOut();
@@ -76,7 +99,7 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
       </div>
       <div className="controls">
         {businesses && businesses.length > 1 && (
-          <select aria-label="Business" value={bizId ?? ""} onChange={(e) => { setData(null); setBizId(e.target.value); }}>
+          <select aria-label="Business" value={bizId ?? ""} onChange={(e) => { setData(null); setStripe(null); setBizId(e.target.value); }}>
             {businesses.map((b) => <option key={b.id} value={b.id}>{b.name}</option>)}
           </select>
         )}
@@ -118,6 +141,7 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
         {data && data.sales.length > 0 && (
           <span>{data.sales.length.toLocaleString()} sales from {fmtDate(Math.min(...data.sales.map((s) => s.date)))} to {fmtDate(Math.max(...data.sales.map((s) => s.date)))}</span>
         )}
+        {syncing && <span className="note">Syncing Stripe…</span>}
         <span className="tabs" role="group" aria-label="View">
           <button type="button" aria-pressed={view === "dashboard"} onClick={() => setView("dashboard")}>Dashboard</button>
           <button type="button" aria-pressed={view === "data"} onClick={() => setView("data")}>Data</button>
@@ -126,6 +150,15 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
       {!data ? (
         <p className="note">Loading your data…</p>
       ) : view === "data" || !data.sales.length ? (
+        <>
+        <StripeConnect
+          demo={store.demo}
+          businessId={biz.id}
+          connection={stripe}
+          syncing={syncing}
+          onSync={() => syncStripe(biz.id)}
+          onChanged={() => reload(biz.id)}
+        />
         <DataPanel
           currency={biz.currency}
           imports={data.imports}
@@ -133,6 +166,7 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
           onExpenses={async (rows, meta) => { await store.addExpenses(biz.id, rows, meta); await reload(biz.id); }}
           onDelete={async (id) => { await store.deleteImport(biz.id, id); await reload(biz.id); }}
         />
+        </>
       ) : (
         <Dashboard sales={data.sales} expenses={data.expenses} currency={biz.currency} />
       )}
