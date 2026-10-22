@@ -31,6 +31,12 @@ The [Deploy workflow](../.github/workflows/deploy.yml) does this on every push t
 
 Set the `VERCEL_PROJECT` repository variable if the Vercel project isn't `datalyze-euqy`.
 
+## Stripe connection
+
+Owners connect Stripe on the Data screen with a read-only restricted key (Charges: Read). The key is encrypted with AES-256-GCM using `DATALYZE_SECRET_KEY` (32 random bytes, base64) before it's stored in `connections`; the deploy workflow creates that variable on Vercel the first time and never replaces it. Payments sync on connect, on "Sync now", and when the owner opens Datalyze more than six hours after the last sync. Successful charges become sales (net of refunds at sync time), charges in other currencies are skipped, and charge ids already present (for example from a Stripe CSV) aren't added twice.
+
+For local development, set `DATALYZE_SECRET_KEY` in `.env.local` (`openssl rand -base64 32`).
+
 ## Checks
 
 ```bash
@@ -48,4 +54,5 @@ CI also applies the migration to Postgres and runs [`supabase/tests/rls_test.sql
 - `src/lib/analytics.ts`: KPIs, forecast, churn risk and insight generation
 - `src/lib/store.ts`: data access, with a Supabase version and an in-memory demo version
 - `src/components/`: dashboard, charts, data import and workspace screens
+- `src/lib/stripe.ts`, `src/lib/stripeApi.ts`, `src/app/api/stripe/`: Stripe connection and sync
 - `src/proxy.ts`: keeps the session fresh and protects `/app`

@@ -37,6 +37,15 @@ for key in NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY; do
   fi
 done
 
+# Server-side key that encrypts connected accounts' API keys. Created once and never replaced,
+# because changing it would make stored keys unreadable.
+envs=$(curl -fsS "${AUTH[@]}" "$V/v9/projects/$PID/env$Q" | jq -r '.envs[].key')
+if ! grep -qx DATALYZE_SECRET_KEY <<<"$envs"; then
+  body=$(jq -n --arg v "$(openssl rand -base64 32)" '{key: "DATALYZE_SECRET_KEY", value: $v, type: "sensitive", target: ["production", "preview"]}')
+  curl -fsS -o /dev/null -X POST "${AUTH[@]}" "$V/v10/projects/$PID/env$Q" -d "$body"
+  echo "Created DATALYZE_SECRET_KEY"
+fi
+
 # Have Vercel build from GitHub itself; building with the CLI from a subfolder breaks next/font.
 body=$(jq -n --arg name "$(jq -r .name <<<"$info")" --arg pid "$PID" --arg repo "${GITHUB_REPOSITORY:-Michael-inaboya/Datalyze}" \
   '{name: $name, project: $pid, target: "production",

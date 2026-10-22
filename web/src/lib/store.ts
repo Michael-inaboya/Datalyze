@@ -14,6 +14,7 @@ export type ImportRecord = {
   created_at: string;
 };
 export type ImportMeta = { fileName: string; source: string | null; skipped: number };
+export type Connection = { account_name: string | null; last_synced_at: string | null; last_error: string | null };
 
 /** Everything the screens need from storage. The demo and Supabase versions behave the same. */
 export interface Store {
@@ -27,6 +28,8 @@ export interface Store {
   addSales(businessId: string, rows: Sale[], meta: ImportMeta): Promise<void>;
   addExpenses(businessId: string, rows: Expense[], meta: ImportMeta): Promise<void>;
   deleteImport(businessId: string, importId: string): Promise<void>;
+  /** The business's Stripe connection, if any. Live connections need a signed-in account. */
+  getStripe(businessId: string): Promise<Connection | null>;
 }
 
 const toDay = (d: string) => Date.parse(d + "T00:00:00Z");
@@ -124,6 +127,12 @@ export function supabaseStore(db: SupabaseClient): Store {
       // sales and expenses rows go with it (on delete cascade)
       check(await db.from("imports").delete().eq("id", importId).eq("business_id", businessId));
     },
+    async getStripe(businessId) {
+      const rows = check(
+        await db.from("connections").select("account_name, last_synced_at, last_error").eq("business_id", businessId).eq("provider", "stripe"),
+      ) as Connection[];
+      return rows[0] ?? null;
+    },
   };
 }
 
@@ -160,5 +169,6 @@ export function demoStore(): Store {
         if (i >= 0) list.splice(i, 1);
       }
     },
+    async getStripe() { return null; },
   };
 }
