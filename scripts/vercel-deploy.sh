@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Fixes the Vercel project settings, builds web/ and deploys it to production.
+# Fixes the Vercel project settings and deploys main to production.
 # Needs VERCEL_TOKEN, NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.
 # Optional VERCEL_PROJECT (name, default "datalyze-euqy"). Writes site_url to $GITHUB_OUTPUT.
 set -euo pipefail
@@ -33,20 +33,28 @@ for key in NEXT_PUBLIC_SUPABASE_URL NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY; do
   body=$(jq -n --arg k "$key" --arg v "${!key}" '{key: $k, value: $v, type: "plain", target: ["production", "preview", "development"]}')
   sep=${Q:+&}; sep=${sep:-?}
   if ! curl -fsS -o /dev/null -X POST "${AUTH[@]}" "$V/v10/projects/$PID/env$Q${sep}upsert=true" -d "$body"; then
-    echo "::warning::Could not set $key on the Vercel project (an integration may own it). This deploy still uses the right value."
+    echo "::warning::Could not set $key on the Vercel project (an integration may own it). Set it in Vercel > Settings > Environment Variables."
   fi
 done
 
-export VERCEL_ORG_ID=$(jq -r .accountId <<<"$info") VERCEL_PROJECT_ID=$PID
-cd "$(dirname "$0")/.."
-npx --yes vercel@latest pull --yes --environment=production --token "$VERCEL_TOKEN"
-# Build with this project's Supabase keys whatever the dashboard holds (an add-on may have set others).
-{
-  echo "NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL"
-  echo "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=$NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
-} >>.vercel/.env.production.local
-npx --yes vercel@latest build --prod --token "$VERCEL_TOKEN"
-url=$(npx --yes vercel@latest deploy --prebuilt --prod --token "$VERCEL_TOKEN")
+# Have Vercel build from GitHub itself; building with the CLI from a subfolder breaks next/font.
+body=$(jq -n --arg name "$(jq -r .name <<<"$info")" --arg pid "$PID" --arg repo "${GITHUB_REPOSITORY:-Michael-inaboya/Datalyze}" \
+  '{name: $name, project: $pid, target: "production",
+    gitSource: {type: "github", org: ($repo | split("/")[0]), repo: ($repo | split("/")[1]), ref: "main"}}')
+dep=$(curl -sS -X POST "${AUTH[@]}" "$V/v13/deployments$Q" -d "$body")
+jq -e .id <<<"$dep" >/dev/null || { echo "::error::Vercel refused the deployment: $(jq -c .error <<<"$dep")" >&2; exit 1; }
+did=$(jq -r .id <<<"$dep")
+echo "Started deployment $did (https://$(jq -r .url <<<"$dep"))"
+for _ in $(seq 1 90); do
+  state=$(curl -fsS "${AUTH[@]}" "$V/v13/deployments/$did$Q" | jq -r .readyState)
+  case $state in
+    READY) break ;;
+    ERROR|CANCELED) echo "::error::Vercel deployment $did ended $state. See the build log on vercel.com." >&2; exit 1 ;;
+  esac
+  sleep 10
+done
+[[ $state == READY ]] || { echo "::error::Vercel deployment $did still $state after 15 minutes" >&2; exit 1; }
+url="https://$(jq -r .url <<<"$dep")"
 echo "Deployed $url"
 
 # Prefer the project's own domain over the per-deployment address.

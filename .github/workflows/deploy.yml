@@ -35,24 +35,25 @@ jobs:
         if: env.SUPABASE_ACCESS_TOKEN != ''
         run: scripts/supabase-migrate.sh
 
+      # The site deploys even if the database step failed; the job still ends red.
       - uses: actions/setup-node@v4
-        if: env.VERCEL_TOKEN != ''
+        if: ${{ !cancelled() && env.VERCEL_TOKEN != '' }}
         with:
           node-version: 22
 
       - name: Deploy to Vercel
         id: vercel
-        if: env.VERCEL_TOKEN != ''
+        if: ${{ !cancelled() && env.VERCEL_TOKEN != '' }}
         run: scripts/vercel-deploy.sh
 
       - name: Point sign-in emails at the site
-        if: env.SUPABASE_ACCESS_TOKEN != '' && steps.vercel.outputs.site_url != ''
+        if: ${{ !cancelled() && env.SUPABASE_ACCESS_TOKEN != '' && steps.vercel.outputs.site_url != '' }}
         env:
           SITE_URL: ${{ steps.vercel.outputs.site_url }}
         run: scripts/supabase-auth-urls.sh
 
       - name: Check the live site
-        if: steps.vercel.outputs.site_url != ''
+        if: ${{ !cancelled() && steps.vercel.outputs.site_url != '' }}
         env:
           SITE_URL: ${{ steps.vercel.outputs.site_url }}
         run: |
