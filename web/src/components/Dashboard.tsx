@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { analyze, buildInsights, type Analysis, type Tier } from "@/lib/analytics";
 import { moneyFormatter, pa, pct } from "@/lib/format";
 import type { Currency, Expense, Sale } from "@/lib/types";
+import { AskPanel } from "./AskPanel";
 import { CostChart, ForecastChart, ProductsChart } from "./Charts";
 
 const CHIP = { good: "Good", warn: "Watch", bad: "Act", info: "Note" } as const;
@@ -25,13 +26,14 @@ function Kpi({ label, value, delta, good }: { label: string; value: string; delt
   );
 }
 
-export function Dashboard({ sales, expenses, currency }: { sales: Sale[]; expenses: Expense[]; currency: Currency }) {
+export function Dashboard({ sales, expenses, currency, businessId, demo }: { sales: Sale[]; expenses: Expense[]; currency: Currency; businessId: string; demo: boolean }) {
   const R = useMemo(() => analyze(sales, expenses), [sales, expenses]);
   const money = useMemo(() => moneyFormatter(currency), [currency]);
   const insights = useMemo(() => buildInsights(R, money), [R, money]);
   return (
     <>
       <Kpis R={R} money={money} />
+      <AskPanel key={businessId} businessId={businessId} demo={demo} />
       <section className="panel">
         <h2>What your data is telling you</h2>
         <p className="sub">Generated automatically from your sales, customers and costs.</p>

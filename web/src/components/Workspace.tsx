@@ -168,7 +168,7 @@ export function Workspace({ mode }: { mode: "demo" | "live" }) {
         />
         </>
       ) : (
-        <Dashboard sales={data.sales} expenses={data.expenses} currency={biz.currency} />
+        <Dashboard sales={data.sales} expenses={data.expenses} currency={biz.currency} businessId={biz.id} demo={store.demo} />
       )}
       {store.demo && <p className="foot">The sample business and its data are generated, not real. Files you add in the demo are not saved.</p>}
     </div>
